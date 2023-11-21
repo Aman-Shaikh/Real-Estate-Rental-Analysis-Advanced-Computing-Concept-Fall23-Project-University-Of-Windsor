@@ -38,7 +38,7 @@ public class SearchWord {
 			offset = RentalAnalysis.search1(word, text.substring(loc));
 			if ((offset + loc) < text.length()) {
 				count++;
-				System.out.println("\n" + word + " is at position " + (offset + loc) + "."); // printing the position of the word
+//				System.out.println("\n" + word + " is at position " + (offset + loc) + "."); // printing the position of the word
 			}
 			loc += offset + word.length();
 		}
@@ -46,7 +46,7 @@ public class SearchWord {
 		// If the word is found, print the file name where it is found
 		if (count != 0) {
 			System.out.println("-------------------------------------------------");
-			System.out.println("\nWord found in " + filePath.getName()); 
+			System.out.println("\nWord found in " + filePath.getName() + " " +count+ " number of times");
 			System.out.println("-------------------------------------------------");
 		}
 		return count;
@@ -103,4 +103,3 @@ public class SearchWord {
 			System.out.println("Entered word cannot be resolved.");
 	}
 }
-

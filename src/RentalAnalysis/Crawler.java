@@ -18,38 +18,27 @@ public class Crawler {
 		try {
 			Document pageContent = Jsoup.connect(url).get();
 
-			// add url only after HTML can be fetched
 			visitedLinks.add(url);
 
-			// regex for web url matching
 			String pattern = "^((https?://)|(www\\.))[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 			System.out.println("\nParsing: " + pattern);
 
 			String tmpURL = "";
-			// iterate over all anchor tags with href attribute using a css selector
 			for (Element anchorTags : pageContent.select("a[href]")) {
-				// get the value of href attribute from anchor tag
 				tmpURL = anchorTags.attr("abs:href");
 				System.out.println(tmpURL);
 
-				// anchor tage with no matching url pattern
 				if (!Pattern.matches(pattern, tmpURL)) {
 					System.out.println("\nFound URL: " + tmpURL + " => unknown");
-				}
-				// already visited links
-				else if (visitedLinks.contains(tmpURL)) {
+				} else if (visitedLinks.contains(tmpURL)) {
 					System.out.println("\nFound URL: " + tmpURL + " => ignored because visited");
-				}
-				// add valid links to crawl
-				else {
+				} else {
 					visitedLinks.add(tmpURL);
 					System.out.println("\nFound URL: " + tmpURL + " => added to crawl list");
 				}
 				tmpURL = "";
 			}
-		}
-		// catch exception when jsoup can not connect to website
-		catch (org.jsoup.HttpStatusException e) {
+		} catch (org.jsoup.HttpStatusException e) {
 			System.out.println("\nURL: " + url + " => blocked, not crawled");
 		} catch (IOException e) {
 			System.out.println("\nURL: " + url + " => I/O error, not crawled");
@@ -78,15 +67,14 @@ public class Crawler {
 			e.printStackTrace();
 		}
 	}
-
-	public static void spider(String url) {
+	public static void crawlMain(String url) {
 		crawlURL(url);
 		extractTextFromHTML();
 	}
 
 //	public static void main(String[] args) {
 //		System.out.println(System.getProperty("user.dir") + Constant.FILE_PATH);
-//		spider("https://stackoverflow.com/questions/11952804/explanation-of-string-args-and-static-in-public-static-void-mainstring-a");
+//		crawlMain("https://stackoverflow.com/questions/11952804/explanation-of-string-args-and-static-in-public-static-void-mainstring-a");
 //	}
 
 }
