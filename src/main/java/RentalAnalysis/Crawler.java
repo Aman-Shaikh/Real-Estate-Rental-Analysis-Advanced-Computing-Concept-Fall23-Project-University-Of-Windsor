@@ -158,7 +158,13 @@ public class Crawler {
 	}
 	private static void crawlListingsAndStoreData(WebDriver driver, String city) {
 		// Assume each listing is represented by a WebElement with a class "listing-item"
-		List<WebElement> listings = driver.findElements(By.className("listing-item"));
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"gallery\"]/div/article"));
 
 		// Check if there are no listings
 		if (listings.isEmpty()) {
@@ -173,23 +179,23 @@ public class Crawler {
 		for (int i = 0; i < listings.size(); i++) {
 			WebElement listing = listings.get(i);
 
-			// Extract data from the listing as strings
+			// Extract data from the listing as strings"//*[@id=\"gallery\"]/div/article["+(i+1)+"]/div[1]/ul/li[2]"
 			String numberOfBeds = listing.findElement(By.xpath(".//ul/li[2]")).getText();
 			String numberOfBaths = listing.findElement(By.xpath(".//ul/li[3]")).getText();
-			String squareFeet = listing.findElement(By.xpath(".//ul/li[4]")).getText();
-			String price = listing.findElement(By.xpath(".//ul/li[1]/span[2]")).getText();
+			String squareFeet = listing.findElement(By.xpath(".//div[1]/ul/li[4]")).getText();
+//			String price = listing.findElement(By.xpath(".//ul/li[1]/span[2]")).getText();
 
 			// Append data to the StringBuilder
 			allDataStringBuilder.append("City: ").append(city).append("\n");
 			allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
 			allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
 			allDataStringBuilder.append("Square Feet: ").append(squareFeet).append("\n");
-			allDataStringBuilder.append("Price: ").append(price).append("\n");
+//			allDataStringBuilder.append("Price: ").append(price).append("\n");
 			allDataStringBuilder.append("\n");
 		}
 
 		// Create a directory to store text files
-		File directory = new File("assets/txtfiles");
+		File directory = new File("assets/txtFiles");
 		if (!directory.exists()) {
 			directory.mkdirs();
 		}
