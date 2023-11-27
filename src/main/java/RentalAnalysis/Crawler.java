@@ -86,7 +86,7 @@ public class Crawler {
 
 
 				// Crawl all listings and store data in text files
-				 crawlListingsAndStoreData(driver,city);
+				 crawlListingsAndStoreData(driver);
 
 
 				System.out.print("\n\nDo you want to continue y/n: ");
@@ -156,7 +156,7 @@ public class Crawler {
 			}
 		}
 	}
-	private static void crawlListingsAndStoreData(WebDriver driver, String city) {
+	private static void crawlListingsAndStoreData(WebDriver driver) {
 		// Assume each listing is represented by a WebElement with a class "listing-item"
 
 		try {
@@ -179,29 +179,51 @@ public class Crawler {
 		for (int i = 0; i < listings.size(); i++) {
 			WebElement listing = listings.get(i);
 
-			// Extract data from the listing as strings"//*[@id=\"gallery\"]/div/article["+(i+1)+"]/div[1]/ul/li[2]"
-			String numberOfBeds = listing.findElement(By.xpath(".//ul/li[2]")).getText();
-			String numberOfBaths = listing.findElement(By.xpath(".//ul/li[3]")).getText();
-			String squareFeet = listing.findElement(By.xpath(".//div[1]/ul/li[4]")).getText();
-//			String price = listing.findElement(By.xpath(".//ul/li[1]/span[2]")).getText();
+			try {
+				// Extract data from the listing as strings
+				String numberOfBeds = listing.findElement(By.xpath(".//ul/li[2]")).getText();
+				String numberOfBaths = listing.findElement(By.xpath(".//ul/li[3]")).getText();
+				String street = listing.findElement(By.xpath(".//div[1]/a/h3/span[1]")).getText();
+				String city = listing.findElement(By.xpath(".//div[1]/a/h3/span[2]")).getText();
+				String province = listing.findElement(By.xpath(".//div[1]/a/h3/span[3]")).getText();//*[@id="gallery"]/div/article[1]/div[1]/div[1]/a/h3/span[3]
 
-			// Append data to the StringBuilder
-			allDataStringBuilder.append("City: ").append(city).append("\n");
-			allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
-			allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
-			allDataStringBuilder.append("Square Feet: ").append(squareFeet).append("\n");
-//			allDataStringBuilder.append("Price: ").append(price).append("\n");
-			allDataStringBuilder.append("\n");
+				// Handle the case where price may not be present
+				String price = "";
+				try {//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
+					//*[@id="gallery"]/div/article[2]/div[1]/ul/li[1]/span[2]
+					//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
+					//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
+					price = listing.findElement(By.xpath(".//ul/li[1]/span[2]")).getText();
+				} catch (Exception ex) {
+					System.out.println("Price not found for listing " + i);
+					// You can choose to skip this listing or handle it differently based on your needs
+					continue;
+				}
+
+				// Append data to the StringBuilder
+				allDataStringBuilder.append("City: ").append(city).append("\n");
+				allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
+				allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
+				allDataStringBuilder.append("Street: ").append(street).append("\n");
+				allDataStringBuilder.append("City: ").append(city).append("\n");
+				allDataStringBuilder.append("Province: ").append(province).append("\n");
+				allDataStringBuilder.append("Price: ").append(price).append("\n");
+
+				allDataStringBuilder.append("\n");
+			} catch (NoSuchElementException e) {
+				// Handle any other elements not found exception for this listing
+				System.out.println("Error extracting data for listing " + i + ": " + e.getMessage());
+			}
 		}
 
 		// Create a directory to store text files
-		File directory = new File("assets/txtFiles");
+		File directory = new File("assets/textFiles");
 		if (!directory.exists()) {
 			directory.mkdirs();
 		}
 
 		// Create a text file for all listings
-		File txtFile = new File("assets/txtfiles/all_listings.txt");
+		File txtFile = new File("assets/textFiles/all_listings.txt");
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
 			// Write all data to the text file
@@ -210,5 +232,6 @@ public class Crawler {
 			e.printStackTrace();
 		}
 	}
+
 
 }
