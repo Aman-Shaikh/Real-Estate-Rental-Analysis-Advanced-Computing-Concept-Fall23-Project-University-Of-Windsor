@@ -2,13 +2,11 @@ package RentalAnalysis;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,7 +21,7 @@ public class Crawler {
 
 	private static WebElement searchBox;
 
-	public static void crawlMain(String urlToCrawl) {
+	public static void crawlZolo(String urlToCrawl) {
 		// Use WebDriverManager to dynamically set up the WebDriver binary
 		Scanner scan = new Scanner(System.in);
 		String choice = "y";
@@ -106,6 +104,90 @@ public class Crawler {
 		}
 	}
 
+
+	public static void crawlRentals(String urlToCrawl) {
+		// Use WebDriverManager to dynamically set up the WebDriver binary
+		Scanner scan = new Scanner(System.in);
+		String choice = "y";
+
+		WebDriverManager.chromedriver().setup();
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--start-maximized");
+
+		try {
+
+
+			do {
+				System.out.println("\nSpecify the details of your search (e.g. city, house/apartment, number of bedrooms, etc): ");
+				System.out.print("City : ");
+				String city = scan.nextLine();
+				System.out.print("\nHouse/Apartment/Condo (if you want to add multiple enter it in comma separated manner): ");
+				String type = scan.nextLine();
+				System.out.print("\nNumber of bedrooms : ");
+				String beds = scan.nextLine();
+
+				// Initialize ChromeDriver with options
+				WebDriver driver = new ChromeDriver(options);
+				// Open Chrome and navigate to the specified URL
+				driver.get(urlToCrawl);
+
+//				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div/div/div/div[2]/div/div")).click();
+				// Locate the auto-suggestion input element
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
+				WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[1]/div[1]/div/div/div/div[2]/div/div/div/input")));
+
+				Thread.sleep(2000);
+
+				// Enter the city into the input
+//				searchBox.click();
+
+				Thread.sleep(1000);
+
+				searchBox.sendKeys(city);
+				Thread.sleep(1500);
+				searchBox.sendKeys(Keys.ARROW_DOWN);
+				// Wait for the auto-suggestion dropdown to appear
+				Thread.sleep(1500);
+				searchBox.sendKeys(Keys.ENTER);
+
+				// Wait for some time to let the search results load
+				Thread.sleep(2000);
+
+				// Select the type of house
+				selectTypeRentals(driver, "//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[2]/span/button", type); // Replace with the actual name or ID of the beds dropdown
+
+
+				// Wait for some time to let the search results load
+				Thread.sleep(2000);
+
+				// Select the type of house
+
+				// Select the number of beds//*[@id="home_search_top"]/ul/li[4]/div/ul/li[1]/label/span
+				selectBedsRentals(driver, "//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/button", beds); // Replace with the actual name or ID of the beds dropdown
+
+
+				// Crawl all listings and store data in text files
+				crawlListingsAndStoreDataRentals(driver);
+
+
+				System.out.print("\n\nDo you want to continue y/n: ");
+				choice = scan.nextLine();
+
+				System.out.println("\n**********************************************************************************************");
+				System.out.println("**********************************************************************************************");
+
+
+			}while (choice.equals("y"));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// Close the browser window
+//			driver.quit();
+		}
+	}
+
 	private static void selectBeds(WebDriver driver, String dropDownXPath, String value) {
 		WebElement dropdown = driver.findElement(By.xpath(dropDownXPath+"/a")); // Replace with the actual ID of the dropdown
 		dropdown.click();
@@ -156,6 +238,104 @@ public class Crawler {
 			}
 		}
 	}
+
+	private static void selectTypeRentals(WebDriver driver, String dropDownXPath, String value) {
+		WebElement dropdown = driver.findElement(By.xpath(dropDownXPath)); // Replace with the actual ID of the dropdown
+		dropdown.click();
+
+		// Wait for some time to let the dropdown options load
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+
+		// Split the comma-separated values
+		String[] typesToSelect = value.split(",");
+		for (String type : typesToSelect) {
+
+			if(type.equalsIgnoreCase("house")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[2]/span/span/div/div/div/div/div[1]/div/div[9]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("condo")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[2]/span/span/div/div/div/div/div[1]/div/div[8]/label")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("townhouse")||type.equalsIgnoreCase("apartment")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[2]/span/span/div/div/div/div/div[1]/div/div[1]")).click();
+			}
+		}
+	}
+
+	private static void selectBedsRentals(WebDriver driver, String dropDownXPath, String value) {
+		WebElement dropdown = driver.findElement(By.xpath(dropDownXPath)); // Replace with the actual ID of the dropdown
+		dropdown.click();
+
+		// Wait for some time to let the dropdown options load
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+
+		// Split the comma-separated values
+		String[] typesToSelect = value.split(",");
+		for (String type : typesToSelect) {
+
+			if(type.equalsIgnoreCase("0")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/span/div/div/div/div/div[1]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("1")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/span/div/div/div/div/div[2]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("2")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/span/div/div/div/div/div[3]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("3")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/span/div/div/div/div/div[4]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			if(type.equalsIgnoreCase("4")){
+				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/nav/div/div[2]/div[3]/span/span/div/div/div/div/div[5]")).click();
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	private static void crawlListingsAndStoreData(WebDriver driver) {
 		// Assume each listing is represented by a WebElement with a class "listing-item"
 
@@ -164,7 +344,7 @@ public class Crawler {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"gallery\"]/div/article"));
+		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"app\"]/div[1]/div/div[2]/div/div[2]/div/div/div/div"));
 
 		// Check if there are no listings
 		if (listings.isEmpty()) {
@@ -189,14 +369,10 @@ public class Crawler {
 
 				// Handle the case where price may not be present
 				String price = "";
-				try {//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
-					//*[@id="gallery"]/div/article[2]/div[1]/ul/li[1]/span[2]
-					//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
-					//*[@id="gallery"]/div/article[1]/div[1]/ul/li[1]/span[2]
+				try {
 					price = listing.findElement(By.xpath(".//ul/li[1]/span[2]")).getText();
 				} catch (Exception ex) {
 					System.out.println("Price not found for listing " + i);
-					// You can choose to skip this listing or handle it differently based on your needs
 					continue;
 				}
 
@@ -210,9 +386,10 @@ public class Crawler {
 				allDataStringBuilder.append("Price: ").append(price).append("\n");
 
 				allDataStringBuilder.append("\n");
-			} catch (NoSuchElementException e) {
+			} catch (Exception e) {
 				// Handle any other elements not found exception for this listing
 				System.out.println("Error extracting data for listing " + i + ": " + e.getMessage());
+				continue;
 			}
 		}
 
@@ -233,5 +410,79 @@ public class Crawler {
 		}
 	}
 
+	private static void crawlListingsAndStoreDataRentals(WebDriver driver) {
+		// Assume each listing is represented by a WebElement with a class "listing-item"
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/div[2]/p[1]
+		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/p
+
+																				  //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/div[2]/p[1]
+																			     //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/div[2]/p[1]
+																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/p
+
+		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"app\"]/div[1]/div/div[2]/div/div[2]/div/div/div"));
+
+		// Check if there are no listings
+		if (listings.isEmpty()) {
+			System.out.println("No listings found on the page.");
+			return;
+		}
+
+		// Create a StringBuilder to store all the data as a string
+		StringBuilder allDataStringBuilder = new StringBuilder();
+
+		System.out.println(listings.size());
+		// Loop through each listing
+		for (int i = 0; i < listings.size(); i++) {
+			WebElement listing = listings.get(i);
+
+			try {
+				// Extract data from the listing as strings
+				String houseType = listing.findElement(By.xpath(".//div/div[4]//p[@class=\"listing-card__type\"]")).getText();
+
+//				String numberOfBeds = listing.findElement(By.xpath(".//div[4]/ul/li[1]")).getText();
+//				String numberOfBaths = listing.findElement(By.xpath(".//div[4]/div[4]/ul/li[2]")).getText();
+//				String address = listing.findElement(By.xpath(".//div[4]/h2")).getText();
+				String price =listing.findElement(By.xpath(".//div/div[4]/p")).getText();
+
+
+				// Append data to the StringBuilder
+				allDataStringBuilder.append("Type of House: ").append(houseType).append("\n");
+//				allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
+//				allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
+//				allDataStringBuilder.append("Address: ").append(address).append("\n");
+				allDataStringBuilder.append("Price: ").append(price).append("\n");
+
+				allDataStringBuilder.append("\n");
+			} catch (Exception e) {
+				// Handle any other elements not found exception for this listing
+				System.out.println("Error extracting data for listing " + i + ": " + e.getMessage());
+				continue;
+			}
+		}
+
+		// Create a directory to store text files
+		File directory = new File("assets/textFiles");
+		if (!directory.exists()) {
+			directory.mkdirs();
+		}
+
+		// Create a text file for all listings
+		File txtFile = new File("assets/textFiles/all_listings.txt");
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
+			// Write all data to the text file
+			writer.write(allDataStringBuilder.toString());
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

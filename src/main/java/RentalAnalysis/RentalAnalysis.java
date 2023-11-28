@@ -65,11 +65,11 @@ public class RentalAnalysis {
         Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
         String choice = "y";
 
-        Crawler.crawlMain("https://zolo.ca/");
+//        Crawler.crawlZolo("https://zolo.ca/");
+        Crawler.crawlRentals("https://rentals.ca/");
+
 
 //        do {
-
-
 //            long fileNumber = 0;
 //            int occur = 0;
 //            int pg = 0;
@@ -101,8 +101,6 @@ public class RentalAnalysis {
 //            } catch (Exception e) {
 //                e.printStackTrace();
 //            }
-
-
 //        } while (choice.equals("y"));
 
         System.out.println("\n***************************************************\n");
