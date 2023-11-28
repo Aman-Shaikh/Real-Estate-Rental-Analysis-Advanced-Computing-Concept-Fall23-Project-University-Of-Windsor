@@ -1,0 +1,264 @@
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 4 bath
+Street: 272 Jones Avenue
+City: Toronto
+Province: ON
+Price: 1,555,000
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 5 bath
+Street: 1 Rowan Avenue
+City: Toronto
+Province: ON
+Price: 1,699,000
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 3 bath
+Street: 12 Kentish Crescent
+City: Toronto
+Province: ON
+Price: 1,249,900
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 63 Humbercrest Boulevard
+City: Toronto
+Province: ON
+Price: 2,299,000
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 5 bath
+Street: 392 Quebec Avenue
+City: Toronto
+Province: ON
+Price: 3,499,999
+
+City: Toronto
+Number of Beds: 4+2 bed
+Number of Baths: 3 bath
+Street: 42 Lockerbie Avenue
+City: Toronto
+Province: ON
+Price: 1,600,000
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 4 bath
+Street: 22 Samuel Teitel Court
+City: Toronto
+Province: ON
+Price: 1,680,000
+
+City: Toronto
+Number of Beds: 4+2 bed
+Number of Baths: 4 bath
+Street: 23 Leacrest Road
+City: Toronto
+Province: ON
+Price: 2,985,000
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 94 Pemberton Avenue
+City: Toronto
+Province: ON
+Price: 2,499,000
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 2 bath
+Street: 236 Ellis Avenue
+City: Toronto
+Province: ON
+Price: 1,999,999
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 4 bath
+Street: 7 Vanderhoof Avenue
+City: Toronto
+Province: ON
+Price: 2,299,000
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 5 bath
+Street: 41 Boswell Avenue
+City: Toronto
+Province: ON
+Price: 6,950,000
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 3 bath
+Street: 16 Miramar Crescent
+City: Toronto
+Province: ON
+Price: 999,000
+
+City: Toronto
+Number of Beds: 2+1 bed
+Number of Baths: 2 bath
+Street: 17 Eighth Street
+City: Toronto
+Province: ON
+Price: 1,149,000
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 3 bath
+Street: 42 Ponymeadow Terrace
+City: Toronto
+Province: ON
+Price: 900,000
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 3 bath
+Street: 10 Wood Glen Road
+City: Toronto
+Province: ON
+Price: 1,399,000
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 6 bath
+Street: 6 Harnish Crescent
+City: Toronto
+Province: ON
+Price: 3,599,000
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 2 bath
+Street: 1057 Birchmount Road
+City: Toronto
+Province: ON
+Price: 949,900
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 64 Dunstall Crescent
+City: Toronto
+Province: ON
+Price: 1,378,000
+
+City: Toronto
+Number of Beds: 2+2 bed
+Number of Baths: 2 bath
+Street: 5 Horizon Crescent
+City: Toronto
+Province: ON
+Price: 1,118,000
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 4 bath
+Street: 23 Monarchdale Avenue
+City: Toronto
+Province: ON
+Price: 1,349,900
+
+City: Toronto
+Number of Beds: 5+1 bed
+Number of Baths: 5 bath
+Street: 45 Yorkleigh Avenue
+City: Toronto
+Province: ON
+Price: 2,899,000
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 2 bath
+Street: 19 Eastwood Avenue
+City: Toronto
+Province: ON
+Price: 1,149,999
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 3 bath
+Street: 33 Mayall Avenue
+City: Toronto
+Province: ON
+Price: 899,000
+
+City: Toronto
+Number of Beds: 6+2 bed
+Number of Baths: 11 bath
+Street: 30 Harrison Road
+City: Toronto
+Province: ON
+Price: 6,999,888
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 2 bath
+Street: 961 Ossington Avenue
+City: Toronto
+Province: ON
+Price: 929,000
+
+City: Toronto
+Number of Beds: 2+1 bed
+Number of Baths: 2 bath
+Street: 103 Harding Boulevard
+City: Toronto
+Province: ON
+Price: 849,900
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 2 bath
+Street: 750 Glengrove Avenue
+City: Toronto
+Province: ON
+Price: 1,499,000
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 2 bath
+Street: 511 Kennedy Road
+City: Toronto
+Province: ON
+Price: 1,068,000
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 4 bath
+Street: 18 Sunset Trail
+City: Toronto
+Province: ON
+Price: 1,448,888
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 3 bath
+Street: 70 Mosedale Crescent
+City: Toronto
+Province: ON
+Price: 1,288,888
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 4 bath
+Street: 623 Vesta Drive
+City: Toronto
+Province: ON
+Price: 2,549,000
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 44 Robintide Court
+City: Toronto
+Province: ON
+Price: 1,088,000
+

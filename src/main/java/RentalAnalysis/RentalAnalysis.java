@@ -61,47 +61,53 @@ public class RentalAnalysis {
 //        }
 
 
-
+        Scanner scan = new Scanner(System.in);
         Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
         String choice = "y";
 
-//        Crawler.crawlZolo("https://zolo.ca/");
+        String word;
+        Crawler.crawlZolo("https://zolo.ca/");
         Crawler.crawlRentals("https://rentals.ca/");
 
+        System.out.print("Enter word to search in crawled data : ");
+        word = scan.nextLine();
 
-//        do {
-//            long fileNumber = 0;
-//            int occur = 0;
-//            int pg = 0;
 
-//            try {
-//                File[] fileArray = dir.listFiles();
-//                invertedIndex.buildIndex(fileArray);
-//
-//                for (int i = 0; i < fileArray.length; i++) {
-//                    occur = SearchWord.wordSearch(p, fileArray[i]);
-//                    occurrs.put(fileArray[i].getName(), occur);
-//                    if (occur != 0)
-//                        pg++;
-//                    fileNumber++;
-//                }
-//
-//                if (pg == 0) {
-//                    System.out.println("\n\n\n\n\n\n---------------------------------------------------");
-//                    System.out.println("Given word not found!!");
-//                    System.out.println("Searching for similar words.....");
-//                    SearchWord.altWord(p);
-//                } else {
-//                    RentalAnalysis.hashing(occurrs, pg);
-//                    Sorting.sortWebPagesByOccurrence(occurrs, pg);
-//                }
-//
-//                System.out.println("\n\n Do you want to continue(y/n)??");
-//                choice = scan.nextLine();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        } while (choice.equals("y"));
+
+
+        do {
+            long fileNumber = 0;
+            int occur = 0;
+            int pg = 0;
+
+            try {
+                File[] fileArray = dir.listFiles();
+                invertedIndex.buildIndex(fileArray);
+
+                for (int i = 0; i < fileArray.length; i++) {
+                    occur = SearchWord.wordSearch(word, fileArray[i]);
+                    occurrs.put(fileArray[i].getName(), occur);
+                    if (occur != 0)
+                        pg++;
+                    fileNumber++;
+                }
+
+                if (pg == 0) {
+                    System.out.println("\n\n\n\n\n\n---------------------------------------------------");
+                    System.out.println("Given word not found!!");
+                    System.out.println("Searching for similar words.....");
+                    SearchWord.altWord(word);
+                } else {
+                    RentalAnalysis.hashing(occurrs, pg);
+                    Sorting.sortWebPagesByOccurrence(occurrs, pg);
+                }
+
+                System.out.println("\n\n Do you want to continue(y/n)??");
+                choice = scan.nextLine();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } while (choice.equals("y"));
 
         System.out.println("\n***************************************************\n");
         System.out.println("	THANK YOU FOR USING OUR RENTAL ANALYSIS PROGRAM       ");

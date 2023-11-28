@@ -34,7 +34,7 @@ public class Crawler {
 		try {
 
 
-			do {
+//			do {
 				System.out.println("\nSpecify the details of your search (e.g. city, house/apartment, number of bedrooms, etc): ");
 				System.out.print("City : ");
 				String city = scan.nextLine();
@@ -84,17 +84,17 @@ public class Crawler {
 
 
 				// Crawl all listings and store data in text files
-				 crawlListingsAndStoreData(driver);
+				 crawlListingsAndStoreDataZolo(driver);
 
 
-				System.out.print("\n\nDo you want to continue y/n: ");
-				choice = scan.nextLine();
+//				System.out.print("\n\nDo you want to continue y/n: ");
+//				choice = scan.nextLine();
 
 				System.out.println("\n**********************************************************************************************");
 				System.out.println("**********************************************************************************************");
 				
 				
-			}while (choice.equals("y"));
+//			}while (choice.equals("y"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -336,7 +336,7 @@ public class Crawler {
 		}
 	}
 
-	private static void crawlListingsAndStoreData(WebDriver driver) {
+	private static void crawlListingsAndStoreDataZolo(WebDriver driver) {
 		// Assume each listing is represented by a WebElement with a class "listing-item"
 
 		try {
@@ -344,7 +344,7 @@ public class Crawler {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"app\"]/div[1]/div/div[2]/div/div[2]/div/div/div/div"));
+		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"gallery\"]/div/article"));
 
 		// Check if there are no listings
 		if (listings.isEmpty()) {
@@ -400,11 +400,12 @@ public class Crawler {
 		}
 
 		// Create a text file for all listings
-		File txtFile = new File("assets/textFiles/all_listings.txt");
+		File txtFile = new File("assets/textFiles/zolo.txt");
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
 			// Write all data to the text file
 			writer.write(allDataStringBuilder.toString());
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -419,21 +420,6 @@ public class Crawler {
 			e.printStackTrace();
 		}
 
-		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/div[2]/p[1]
-		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/p
-
-																				  //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/div[2]/p[1]
-																			     //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/div[2]/p[1]
-																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/p
-
-																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/div[4]/ul/li[listing-card__main-features--active]
-
-
-		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[5]/div/div[4]/div[4]/ul/li[1]
-		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/div[4]/ul/li[1]
-		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[6]/div/div[4]/div[3]/ul/li[1]
-
-																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/h2
 		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"app\"]/div[1]/div/div[2]/div/div[2]/div/div/div"));
 
 		// Check if there are no listings
@@ -483,7 +469,7 @@ public class Crawler {
 		}
 
 		// Create a text file for all listings
-		File txtFile = new File("assets/textFiles/all_listings.txt");
+		File txtFile = new File("assets/textFiles/rentals.txt");
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
 			// Write all data to the text file
