@@ -426,6 +426,14 @@ public class Crawler {
 																			     //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/div[2]/p[1]
 																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/p
 
+																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/div[4]/ul/li[listing-card__main-features--active]
+
+
+		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[5]/div/div[4]/div[4]/ul/li[1]
+		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[7]/div/div[4]/div[4]/ul/li[1]
+		//*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[6]/div/div[4]/div[3]/ul/li[1]
+
+																				 //*[@id="app"]/div[1]/div/div[2]/div/div[2]/div/div/div[1]/div/div[4]/h2
 		List<WebElement> listings = driver.findElements(By.xpath("//*[@id=\"app\"]/div[1]/div/div[2]/div/div[2]/div/div/div"));
 
 		// Check if there are no listings
@@ -446,17 +454,18 @@ public class Crawler {
 				// Extract data from the listing as strings
 				String houseType = listing.findElement(By.xpath(".//div/div[4]//p[@class=\"listing-card__type\"]")).getText();
 
-//				String numberOfBeds = listing.findElement(By.xpath(".//div[4]/ul/li[1]")).getText();
-//				String numberOfBaths = listing.findElement(By.xpath(".//div[4]/div[4]/ul/li[2]")).getText();
-//				String address = listing.findElement(By.xpath(".//div[4]/h2")).getText();
+																	//				div/div[4]/div[4]/ul/li[listing-card__main-features--active]
+				String numberOfBeds = listing.findElement(By.xpath(".//div/div[4]//ul/li[@class=\"listing-card__main-features--active\"]")).getText();
+				String numberOfBaths = listing.findElement(By.xpath(".//div/div[4]//ul/li[2]")).getText();
+				String address = listing.findElement(By.xpath(".//div//h2")).getText();
 				String price =listing.findElement(By.xpath(".//div/div[4]/p")).getText();
 
 
 				// Append data to the StringBuilder
 				allDataStringBuilder.append("Type of House: ").append(houseType).append("\n");
-//				allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
-//				allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
-//				allDataStringBuilder.append("Address: ").append(address).append("\n");
+				allDataStringBuilder.append("Number of Beds: ").append(numberOfBeds).append("\n");
+				allDataStringBuilder.append("Number of Baths: ").append(numberOfBaths).append("\n");
+				allDataStringBuilder.append("Address: ").append(address).append("\n");
 				allDataStringBuilder.append("Price: ").append(price).append("\n");
 
 				allDataStringBuilder.append("\n");

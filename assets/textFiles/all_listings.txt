@@ -1,75 +1,150 @@
 Type of House: Multi-Unit
-Price: $5555
-
-Type of House: Town House
-Price: $3199
-
-Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 581 Carlaw Ave. - Toronto, ON
 Price: $2650
 
-Type of House: Town House
-Price: $2145
-
-Type of House: House
-Price: $1775
-
 Type of House: Multi-Unit
-Price: $2150
-
-Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 2004 Lawrence Ave. W. - Toronto, ON
 Price: $2550
 
 Type of House: Multi-Unit
-Price: $3900
-
-Type of House: Multi-Unit
-Price: $3900
-
-Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 197 Hallam Street - Toronto, ON
 Price: $3350
 
 Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 3 BATH
+Address: 861 Sheppard - Toronto, ON
 Price: $3790
 
-Type of House: Multi-Unit
-Price: $2095
-
-Type of House: House
-Price: $3850
-
 Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: 12 foundry avenue rd - Toronto, ON
 Price: $3275
 
-Type of House: Town House
-Price: $2600
-
-Type of House: Town House
-Price: $5450
-
-Type of House: Town House
-Price: $4400
-
-Type of House: Town House
-Price: $3995
-
 Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 263 Garden Avenue - Toronto, ON
 Price: $2995
 
 Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 1092 Bathurst Street - Toronto, ON
 Price: $2945
 
 Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 380 Northcliffe Blvd - Toronto, ON
 Price: $2875
 
 Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: 7 Foundry Avenue - Toronto, ON
 Price: $3150
 
 Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1.5 - 2 BATH
+Address: 16 John Best Ave. - Toronto, ON
 Price: $2950 - $3588
 
-Type of House: Town House
-Price: $1925 - $3700
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 92 Moberly Avenue - Toronto, ON
+Price: $3200
 
 Type of House: House
-Price: $6100
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 23 Manning Avenue - Toronto, ON
+Price: $5500
+
+Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 529 Manning Avenue - Toronto, ON
+Price: $3800
+
+Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: 256 Augusta Avenue - Toronto, ON
+Price: $2995
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 110 Port Royal Trail - Toronto, ON
+Price: $2000
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 415 Jarvis Street - Toronto, ON
+Price: $2900
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 179 Hillside Avenue - Toronto, ON
+Price: $3200
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 140 Helendale Avenue - Toronto, ON
+Price: $3600
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 45 Shannon Street - Toronto, ON
+Price: $4300
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 3 BATH
+Address: 46A Crawford Street - Toronto, ON
+Price: $4200
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 54 East Liberty Street - Toronto, ON
+Price: $3600
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 2.5 BATH
+Address: 37 Wild Rose Gardens - Toronto, ON
+Price: $2950
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 46 Western Battery Rd - Toronto, ON
+Price: $3200
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: Prescott Avenue - Toronto, ON
+Price: $3365
+
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: Prescott Avenue - Toronto, ON
+Price: $3365
 
