@@ -21,27 +21,15 @@ public class Crawler {
 
 	private static WebElement searchBox;
 
-	public static void crawlZolo(String urlToCrawl) {
+	public static void crawlZolo(String urlToCrawl,String city,String type,String beds) {
+
 		// Use WebDriverManager to dynamically set up the WebDriver binary
-		Scanner scan = new Scanner(System.in);
-		String choice = "y";
-		
 		WebDriverManager.chromedriver().setup();
 
 		ChromeOptions options = new ChromeOptions();
 		 options.addArguments("--start-maximized");
 
 		try {
-
-
-//			do {
-				System.out.println("\nSpecify the details of your search (e.g. city, house/apartment, number of bedrooms, etc): ");
-				System.out.print("City : ");
-				String city = scan.nextLine();
-				System.out.print("\nHouse/Apartment/Condo (if you want to add multiple enter it in comma separated manner): ");
-				String type = scan.nextLine();
-				System.out.print("\nNumber of bedrooms : ");
-				String beds = scan.nextLine();
 
 				// Initialize ChromeDriver with options
 				WebDriver driver = new ChromeDriver(options);
@@ -77,24 +65,15 @@ public class Crawler {
 				// Wait for some time to let the search results load
 				Thread.sleep(2000);
 
-				// Select the type of house
 
 				// Select the number of beds//*[@id="home_search_top"]/ul/li[4]/div/ul/li[1]/label/span
 				selectBeds(driver, "//*[@id=\"home_search_top\"]/ul/li[3]", beds); // Replace with the actual name or ID of the beds dropdown
 
-
 				// Crawl all listings and store data in text files
 				 crawlListingsAndStoreDataZolo(driver);
 
-
-//				System.out.print("\n\nDo you want to continue y/n: ");
-//				choice = scan.nextLine();
-
 				System.out.println("\n**********************************************************************************************");
 				System.out.println("**********************************************************************************************");
-				
-				
-//			}while (choice.equals("y"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,10 +84,9 @@ public class Crawler {
 	}
 
 
-	public static void crawlRentals(String urlToCrawl) {
+	public static void crawlRentals(String urlToCrawl,String city,String type,String beds) {
 		// Use WebDriverManager to dynamically set up the WebDriver binary
 		Scanner scan = new Scanner(System.in);
-		String choice = "y";
 
 		WebDriverManager.chromedriver().setup();
 
@@ -116,17 +94,6 @@ public class Crawler {
 		options.addArguments("--start-maximized");
 
 		try {
-
-
-			do {
-				System.out.println("\nSpecify the details of your search (e.g. city, house/apartment, number of bedrooms, etc): ");
-				System.out.print("City : ");
-				String city = scan.nextLine();
-				System.out.print("\nHouse/Apartment/Condo (if you want to add multiple enter it in comma separated manner): ");
-				String type = scan.nextLine();
-				System.out.print("\nNumber of bedrooms : ");
-				String beds = scan.nextLine();
-
 				// Initialize ChromeDriver with options
 				WebDriver driver = new ChromeDriver(options);
 				// Open Chrome and navigate to the specified URL
@@ -170,15 +137,8 @@ public class Crawler {
 				// Crawl all listings and store data in text files
 				crawlListingsAndStoreDataRentals(driver);
 
-
-				System.out.print("\n\nDo you want to continue y/n: ");
-				choice = scan.nextLine();
-
 				System.out.println("\n**********************************************************************************************");
 				System.out.println("**********************************************************************************************");
-
-
-			}while (choice.equals("y"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -233,7 +193,7 @@ public class Crawler {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(type.equalsIgnoreCase("townhouse")){
+			if(type.equalsIgnoreCase("townhouse")||type.equalsIgnoreCase("apartment")){
 				driver.findElement(By.xpath("//*[@id=\"home_search_top\"]/ul/li[4]/div/ul/li[3]")).click();
 			}
 		}
@@ -365,7 +325,9 @@ public class Crawler {
 				String numberOfBaths = listing.findElement(By.xpath(".//ul/li[3]")).getText();
 				String street = listing.findElement(By.xpath(".//div[1]/a/h3/span[1]")).getText();
 				String city = listing.findElement(By.xpath(".//div[1]/a/h3/span[2]")).getText();
-				String province = listing.findElement(By.xpath(".//div[1]/a/h3/span[3]")).getText();//*[@id="gallery"]/div/article[1]/div[1]/div[1]/a/h3/span[3]
+				String province = listing.findElement(By.xpath(".//div[1]/a/h3/span[3]")).getText();
+
+
 
 				// Handle the case where price may not be present
 				String price = "";

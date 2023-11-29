@@ -86,7 +86,7 @@ public class SearchWord {
 			}
 		}
 
-		Integer allowedDistance = 1; 
+		Integer allowedDistance = 3;
 		boolean matchFound = false; 
 
 		System.out.println("Did you mean? ");

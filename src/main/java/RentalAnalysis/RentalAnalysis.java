@@ -1,6 +1,7 @@
 package RentalAnalysis;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -38,11 +39,11 @@ public class RentalAnalysis {
     public static void RentalAnalysis() {
         File dir = new File(System.getProperty("user.dir") + Constant.FILE_PATH);
 
-        for (File f : dir.listFiles()) {
-            if (f.getName().endsWith(".txt")) {
-                f.delete();
-            }
-        }
+//        for (File f : dir.listFiles()) {
+//            if (f.getName().endsWith(".txt")) {
+//                f.delete();
+//            }
+//        }
 
 
         RentalAnalysis w = new RentalAnalysis();
@@ -54,31 +55,73 @@ public class RentalAnalysis {
 //
 //        while(!Pattern.matches(pattern, urlToCrawl)){
 //            System.out.println("\n\n Please enter a valid url (it should start with either https: or www.)");
-//
 //            System.out.println("\n\n Enter the URL you want to crawl");
 //            urlToCrawl = scan.nextLine();
-//
 //        }
 
-
         Scanner scan = new Scanner(System.in);
-        Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
         String choice = "y";
-
         String word;
-        Crawler.crawlZolo("https://zolo.ca/");
-        Crawler.crawlRentals("https://rentals.ca/");
 
-        System.out.print("Enter word to search in crawled data : ");
-        word = scan.nextLine();
+        //word completion
+        AVLTree cityTree = new AVLTree();
+        loadCities(cityTree);
+
+        System.out.println("\nSpecify the details of your search (e.g. city, house/apartment/condo, number of bedrooms, etc): ");
+        System.out.print("City: ");
+        String city = scan.nextLine();
+
+        String suggestions = cityTree.autocomplete(city);
+
+        if(suggestions.equalsIgnoreCase("No complete word can be found.")){
+            System.out.println("No complete word can be found.");
+        }
+        else {
+            System.out.println("Word Completion Output: "+suggestions);
+            city = suggestions;
+        }
+
+        // Validate the input for the 'type' variable (house/apartment/condo)
+        String type;
+        do {
+            // Prompt the user for input
+            System.out.print("\nHouse/Apartment/Condo (if you want to add multiple, enter it in a comma-separated manner): ");
+
+            // Read the user input for 'type'
+            type = scan.nextLine();
+        } while (!type.matches("(?i)(apartment|house|condo)(,(apartment|house|condo))*"));
+        // The loop continues until 'type' matches the pattern, which allows for a case-insensitive comma-separated list of 'apartment', 'house', or 'condo'.
+
+        // Validate the input for the 'beds' variable (number of bedrooms)
+        String beds;
+        do {
+            // Prompt the user for input
+            System.out.print("\nNumber of bedrooms: ");
+
+            // Read the user input for 'beds'
+            beds = scan.nextLine();
+        } while (!beds.matches("\\d+"));
+        // The loop continues until 'beds' matches the pattern, which allows for one or more digits.
+
+
+//        Crawler.crawlZolo("https://zolo.ca/", city, type, beds);
+//        Crawler.crawlRentals("https://rentals.ca/", city, type, beds);
 
 
 
+
+
+        Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
 
         do {
             long fileNumber = 0;
             int occur = 0;
             int pg = 0;
+
+            do {
+                System.out.print("Enter word to search in crawled data: ");
+                word = scan.nextLine();
+            } while (!word.matches("\\w+"));
 
             try {
                 File[] fileArray = dir.listFiles();
@@ -116,6 +159,23 @@ public class RentalAnalysis {
 
     public static void main(String[] args) {
         RentalAnalysis.RentalAnalysis();
+    }
+
+
+    private static void loadCities(AVLTree cityTree) {
+        try {
+            File file = new File("C:\\Users\\amans\\Desktop\\MAC UWindsor\\Sem1\\ACC\\Project\\AccProject\\src\\main\\java\\RentalAnalysis\\canadiancities.txt");
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNextLine()) {
+                String city = scanner.nextLine().trim();
+                cityTree.root = cityTree.insert(cityTree.root, city);
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     static void hashing(Hashtable<String, Integer> hashtable, Integer page) {
