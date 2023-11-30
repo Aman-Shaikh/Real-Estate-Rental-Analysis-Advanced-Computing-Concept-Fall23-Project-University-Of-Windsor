@@ -1,0 +1,130 @@
+
+package RentalAnalysis;
+
+class AVLNode {
+    String cozycoderData;
+    int cozycoderHeight;
+    AVLNode cozycoderLeft, cozycoderRight;
+
+    AVLNode(String data) {
+        this.cozycoderData = data;
+        this.cozycoderHeight = 1;
+    }
+}
+
+class AVLTree {
+    AVLNode cozycoderRoot;
+
+    int cozycoderHeight(AVLNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return node.cozycoderHeight;
+    }
+
+    int cozycoderBalanceFactor(AVLNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return cozycoderHeight(node.cozycoderLeft) - cozycoderHeight(node.cozycoderRight);
+    }
+
+    AVLNode cozycoderRightRotate(AVLNode y) {
+        AVLNode x = y.cozycoderLeft;
+        AVLNode T2 = x.cozycoderRight;
+
+        x.cozycoderRight = y;
+        y.cozycoderLeft = T2;
+
+        y.cozycoderHeight = Math.max(cozycoderHeight(y.cozycoderLeft), cozycoderHeight(y.cozycoderRight)) + 1;
+        x.cozycoderHeight = Math.max(cozycoderHeight(x.cozycoderLeft), cozycoderHeight(x.cozycoderRight)) + 1;
+
+        return x;
+    }
+
+    AVLNode cozycoderLeftRotate(AVLNode x) {
+        AVLNode y = x.cozycoderRight;
+        AVLNode T2 = y.cozycoderLeft;
+
+        y.cozycoderLeft = x;
+        x.cozycoderRight = T2;
+
+        x.cozycoderHeight = Math.max(cozycoderHeight(x.cozycoderLeft), cozycoderHeight(x.cozycoderRight)) + 1;
+        y.cozycoderHeight = Math.max(cozycoderHeight(y.cozycoderLeft), cozycoderHeight(y.cozycoderRight)) + 1;
+
+        return y;
+    }
+
+    AVLNode cozycoderInsert(AVLNode node, String data) {
+        if (node == null) {
+            return new AVLNode(data);
+        }
+
+        if (data.compareTo(node.cozycoderData) < 0) {
+            node.cozycoderLeft = cozycoderInsert(node.cozycoderLeft, data);
+        } else if (data.compareTo(node.cozycoderData) > 0) {
+            node.cozycoderRight = cozycoderInsert(node.cozycoderRight, data);
+        } else {
+            // Duplicate data, no action needed
+            return node;
+        }
+
+        node.cozycoderHeight = 1 + Math.max(cozycoderHeight(node.cozycoderLeft), cozycoderHeight(node.cozycoderRight));
+
+        int balance = cozycoderBalanceFactor(node);
+
+        // Left Left Case
+        if (balance > 1 && data.compareTo(node.cozycoderLeft.cozycoderData) < 0) {
+            return cozycoderRightRotate(node);
+        }
+
+        // Right Right Case
+        if (balance < -1 && data.compareTo(node.cozycoderRight.cozycoderData) > 0) {
+            return cozycoderLeftRotate(node);
+        }
+
+        // Left Right Case
+        if (balance > 1 && data.compareTo(node.cozycoderLeft.cozycoderData) > 0) {
+            node.cozycoderLeft = cozycoderLeftRotate(node.cozycoderLeft);
+            return cozycoderRightRotate(node);
+        }
+
+        // Right Left Case
+        if (balance < -1 && data.compareTo(node.cozycoderRight.cozycoderData) < 0) {
+            node.cozycoderRight = cozycoderRightRotate(node.cozycoderRight);
+            return cozycoderLeftRotate(node);
+        }
+
+        return node;
+    }
+
+    void cozycoderPreOrder(AVLNode node) {
+        if (node != null) {
+            System.out.print(node.cozycoderData + " ");
+            cozycoderPreOrder(node.cozycoderLeft);
+            cozycoderPreOrder(node.cozycoderRight);
+        }
+    }
+
+    String cozycoderAutocomplete(String prefix) {
+        StringBuilder result = new StringBuilder();
+        cozycoderAutocomplete(cozycoderRoot, prefix, result);
+        return result.length() > 0 ? result.toString() : "No complete word can be found.";
+    }
+
+    private void cozycoderAutocomplete(AVLNode node, String prefix, StringBuilder result) {
+        if (node != null) {
+            if (node.cozycoderData.startsWith(prefix)) {
+                result.append(node.cozycoderData).append(" ");
+            }
+            if (prefix.compareTo(node.cozycoderData) < 0) {
+                cozycoderAutocomplete(node.cozycoderLeft, prefix, result);
+            } else if (prefix.compareTo(node.cozycoderData) > 0) {
+                cozycoderAutocomplete(node.cozycoderRight, prefix, result);
+            } else {
+                cozycoderAutocomplete(node.cozycoderLeft, prefix, result);
+                cozycoderAutocomplete(node.cozycoderRight, prefix, result);
+            }
+        }
+    }
+}

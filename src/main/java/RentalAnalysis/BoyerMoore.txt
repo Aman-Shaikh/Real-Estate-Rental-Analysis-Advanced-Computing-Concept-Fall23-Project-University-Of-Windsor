@@ -1,0 +1,35 @@
+package RentalAnalysis;
+
+public class BoyerMoore {
+    private final int cozycoderR;
+    private int[] cozycoderRight;
+    private char[] cozycoderPattern;
+    private String cozycoderPat;
+
+    public BoyerMoore(String pat) {
+        this.cozycoderR = 100000;
+        this.cozycoderPat = pat;
+        cozycoderRight = new int[cozycoderR];
+        for (int cozycoderC = 0; cozycoderC < cozycoderR; cozycoderC++)
+            cozycoderRight[cozycoderC] = -1;
+        for (int cozycoderJ = 0; cozycoderJ < pat.length(); cozycoderJ++)
+            cozycoderRight[Character.toLowerCase(pat.charAt(cozycoderJ))] = cozycoderJ;
+    }
+
+    public int cozycoderSearch(String txt) {
+        int cozycoderM = cozycoderPat.length();
+        int cozycoderN = txt.length();
+        int cozycoderSkip;
+        for (int cozycoderI = 0; cozycoderI <= cozycoderN - cozycoderM; cozycoderI += cozycoderSkip) {
+            cozycoderSkip = 0;
+            for (int cozycoderJ = cozycoderM - 1; cozycoderJ >= 0; cozycoderJ--) {
+                if (Character.toLowerCase(cozycoderPat.charAt(cozycoderJ)) != Character.toLowerCase(txt.charAt(cozycoderI + cozycoderJ))) {
+                    cozycoderSkip = Math.max(1, cozycoderJ - cozycoderRight[Character.toLowerCase(txt.charAt(cozycoderI + cozycoderJ))]);
+                    break;
+                }
+            }
+            if (cozycoderSkip == 0) return cozycoderI;
+        }
+        return cozycoderN;
+    }
+}

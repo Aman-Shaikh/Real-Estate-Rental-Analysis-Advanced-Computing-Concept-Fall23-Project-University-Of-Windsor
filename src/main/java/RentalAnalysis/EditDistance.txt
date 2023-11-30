@@ -1,0 +1,87 @@
+package RentalAnalysis;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.regex.Matcher;
+
+/**
+ * Uses Edit distance to compare nearest distance between keyword and similar patterns obtained from regex.
+ **/
+public class EditDistance {
+
+	/**
+	 * Finds the edit distance between the words cozycoderWord1 and cozycoderWord2
+	 * @param cozycoderWord1
+	 * @param cozycoderWord2
+	 * @return
+	 */
+	public static int findEditDistance(String cozycoderWord1, String cozycoderWord2)
+	{
+		int cozycoderLen1 = cozycoderWord1.length();
+		int cozycoderLen2 = cozycoderWord2.length();
+
+		int[][] cozycoderDp = new int[cozycoderLen1 + 1][cozycoderLen2 + 1];
+
+		for (int cozycoderI = 0; cozycoderI <= cozycoderLen1; cozycoderI++) {
+			cozycoderDp[cozycoderI][0] = cozycoderI;
+		}
+
+		for (int cozycoderJ = 0; cozycoderJ <= cozycoderLen2; cozycoderJ++) {
+			cozycoderDp[0][cozycoderJ] = cozycoderJ;
+		}
+
+		//iterate though, and check last char
+		for (int cozycoderI = 0; cozycoderI < cozycoderLen1; cozycoderI++) {
+			char cozycoderC1 = cozycoderWord1.charAt(cozycoderI);
+			for (int cozycoderJ = 0; cozycoderJ < cozycoderLen2; cozycoderJ++) {
+				char cozycoderC2 = cozycoderWord2.charAt(cozycoderJ);
+
+				if (cozycoderC1 == cozycoderC2) {
+					cozycoderDp[cozycoderI + 1][cozycoderJ + 1] = cozycoderDp[cozycoderI][cozycoderJ];
+				} else {
+					int cozycoderReplace = cozycoderDp[cozycoderI][cozycoderJ] + 1;
+					int cozycoderInsert = cozycoderDp[cozycoderI][cozycoderJ + 1] + 1;
+					int cozycoderDelete = cozycoderDp[cozycoderI + 1][cozycoderJ] + 1;
+
+					int cozycoderMin = cozycoderReplace > cozycoderInsert ? cozycoderInsert : cozycoderReplace;
+					cozycoderMin = cozycoderDelete > cozycoderMin ? cozycoderMin : cozycoderDelete;
+					cozycoderDp[cozycoderI + 1][cozycoderJ + 1] = cozycoderMin;
+				}
+			}
+		}
+		return cozycoderDp[cozycoderLen1][cozycoderLen2];
+	}
+
+	/**
+	 * Find the given word in the file
+	 * @param cozycoderSourceFile
+	 * @param cozycoderFileNumber
+	 * @param cozycoderMatcher
+	 * @param cozycoderP1
+	 */
+	public static void findWord(File cozycoderSourceFile, int cozycoderFileNumber, Matcher cozycoderMatcher, String cozycoderP1)
+	{
+		try
+		{
+			BufferedReader cozycoderReader = new BufferedReader(new FileReader(cozycoderSourceFile));
+			String cozycoderLine = null;
+
+			while ((cozycoderLine = cozycoderReader.readLine()) != null){
+				cozycoderMatcher.reset(cozycoderLine);
+				while (cozycoderMatcher.find()) {
+					RentalAnalysis.cozycoderKey.add(cozycoderMatcher.group());
+				}
+			}
+			cozycoderReader.close();
+			for(int cozycoderP = 0; cozycoderP < RentalAnalysis.cozycoderKey.size(); cozycoderP++){
+				RentalAnalysis.cozycoderNumbers.put(RentalAnalysis.cozycoderKey.get(cozycoderP), findEditDistance(cozycoderP1.toLowerCase(), RentalAnalysis.cozycoderKey.get(cozycoderP).toLowerCase()));
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+}

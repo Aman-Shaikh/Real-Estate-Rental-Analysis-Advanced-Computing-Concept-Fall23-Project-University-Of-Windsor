@@ -1,4 +1,28 @@
 City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 5 bath
+Street: 29 Leland Avenue
+City: Toronto
+Province: ON
+Price: 3,998,000
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 5 bath
+Street: 408 Ontario Street
+City: Toronto
+Province: ON
+Price: 2,695,000
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 3 bath
+Street: 270 Brighton Avenue N
+City: Toronto
+Province: ON
+Price: 1,588,000
+
+City: Toronto
 Number of Beds: 4+2 bed
 Number of Baths: 3 bath
 Street: 239 Burnhamthorpe Road
@@ -80,7 +104,7 @@ Price: 939,900
 
 City: Toronto
 Number of Beds: 3+3 bed
-Number of Baths: 3 bath
+Number of Baths: 4 bath
 Street: 31 Bellefontaine Street
 City: Toronto
 Province: ON
@@ -245,28 +269,4 @@ Street: 7 Warwick Castle Court
 City: Toronto
 Province: ON
 Price: 949,000
-
-City: Toronto
-Number of Beds: 3+2 bed
-Number of Baths: 2 bath
-Street: 4 Westlake Crescent
-City: Toronto
-Province: ON
-Price: 699,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 5 bath
-Street: 12 Tennis Crescent
-City: Toronto
-Province: ON
-Price: 2,349,000
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 3 bath
-Street: 785 Sammon Avenue
-City: Toronto
-Province: ON
-Price: 1,869,000
 

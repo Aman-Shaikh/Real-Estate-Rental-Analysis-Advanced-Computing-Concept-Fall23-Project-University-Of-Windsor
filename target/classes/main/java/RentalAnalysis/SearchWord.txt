@@ -7,15 +7,14 @@ import java.util.regex.Pattern;
 public class SearchWord {
 
 	/**
-	 * Searches word in the given file using the Booyer Moore algorithm. 
+	 * Searches word in the given file using the Booyer Moore algorithm.
 	 * Returns the number of times the word has been found in the file.
-	 * 
+	 *
 	 * @param word     The word to search
      * @param filePath The file path
      * @return The number of occurrences of the word in the file
      * @throws IOException if an I/O error occurs while reading the file
      */
-	//Frequency count Farhan
 	public static int wordSearch(String word, File filePath) throws IOException {
 		int count = 0;
 		StringBuilder data = new StringBuilder();
@@ -43,9 +42,9 @@ public class SearchWord {
 			}
 			loc += offset + word.length();
 		}
-		
+
 		// If the word is found, print the file name where it is found
-		if (count != 0) {
+		if (count >= 0) {
 			System.out.println("-------------------------------------------------");
 			System.out.println("\nWord found in " + filePath.getName() + " " +count+ " number of times");
 			System.out.println("-------------------------------------------------");
@@ -60,11 +59,10 @@ public class SearchWord {
 	}
 
 	/**
-	 * Finds all the words with an edit distance of 1 to the provided word.
-	 * 
+	 * Finds all the words with an edit distance of 3 to the provided word.
+	 *
 	 * @param word The word to find similar words for
 	 */
-
 	public static void altWord(String word) {
 		String str = " ";
 		String pattern1 = "[0-9a-zA-Z]+";
@@ -74,10 +72,10 @@ public class SearchWord {
 		Matcher m3 = r3.matcher(str);
 		int fileNumber = 0;
 
-		// Get the list of files in the directory to search for similar words	
+		// Get the list of files in the directory to search for similar words
 		File dir = new File(System.getProperty("user.dir") + Constant.FILE_PATH);
 		File[] fileArray = dir.listFiles();
-		
+
 		// Iterate through the files and find data based on edit distance
 		for (File file : fileArray) {
 			try {
@@ -89,9 +87,9 @@ public class SearchWord {
 		}
 
 		Integer allowedDistance = 1;
-		boolean matchFound = false; 
+		boolean matchFound = false;
 
-
+		System.out.println("Did you mean? ");
 		int i = 0;
 		// Display the list of words with an edit distance of 1 to the provided word
 		for (String key : RentalAnalysis.numbers.keySet()) {
@@ -103,6 +101,5 @@ public class SearchWord {
 		}
 		if (!matchFound)
 			System.out.println("Entered word cannot be resolved.");
-		else System.out.println("Did you mean? ");
 	}
 }

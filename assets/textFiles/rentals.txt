@@ -118,6 +118,12 @@ Number of Baths: 2 BATH
 Address: 54 East Liberty Street - Toronto, ON
 Price: $3600
 
+Type of House: Town House
+Number of Beds: 2 BED
+Number of Baths: 1.5 BATH
+Address: 466 Markham Street - Toronto, ON
+Price: $2400
+
 Type of House: House
 Number of Beds: 2 BED
 Number of Baths: 1 BATH
@@ -141,10 +147,4 @@ Number of Beds: 2 BED
 Number of Baths: 1 BATH
 Address: 110 Port Royal Trail - Toronto, ON
 Price: $2000
-
-Type of House: Multi-Unit
-Number of Beds: 2 BED
-Number of Baths: 1 BATH
-Address: 1192 Dufferin Street - Toronto, ON
-Price: $2650
 
