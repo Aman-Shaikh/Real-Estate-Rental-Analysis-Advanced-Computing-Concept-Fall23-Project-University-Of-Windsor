@@ -59,9 +59,9 @@ class AVLTree {
             return new AVLNode(data);
         }
 
-        if (data.compareTo(node.data) < 0) {
+        if (data.compareToIgnoreCase(node.data) < 0) {
             node.left = insert(node.left, data);
-        } else if (data.compareTo(node.data) > 0) {
+        } else if (data.compareToIgnoreCase(node.data) > 0) {
             node.right = insert(node.right, data);
         } else {
             // Duplicate data, no action needed
@@ -73,23 +73,23 @@ class AVLTree {
         int balance = balanceFactor(node);
 
         // Left Left Case
-        if (balance > 1 && data.compareTo(node.left.data) < 0) {
+        if (balance > 1 && data.compareToIgnoreCase(node.left.data) < 0) {
             return rightRotate(node);
         }
 
         // Right Right Case
-        if (balance < -1 && data.compareTo(node.right.data) > 0) {
+        if (balance < -1 && data.compareToIgnoreCase(node.right.data) > 0) {
             return leftRotate(node);
         }
 
         // Left Right Case
-        if (balance > 1 && data.compareTo(node.left.data) > 0) {
+        if (balance > 1 && data.compareToIgnoreCase(node.left.data) > 0) {
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
 
         // Right Left Case
-        if (balance < -1 && data.compareTo(node.right.data) < 0) {
+        if (balance < -1 && data.compareToIgnoreCase(node.right.data) < 0) {
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
@@ -113,12 +113,12 @@ class AVLTree {
 
     private void autocomplete(AVLNode node, String prefix, StringBuilder result) {
         if (node != null) {
-            if (node.data.startsWith(prefix)) {
+            if (node.data.toLowerCase().startsWith(prefix.toLowerCase())) {
                 result.append(node.data).append(" ");
             }
-            if (prefix.compareTo(node.data) < 0) {
+            if (prefix.compareToIgnoreCase(node.data) < 0) {
                 autocomplete(node.left, prefix, result);
-            } else if (prefix.compareTo(node.data) > 0) {
+            } else if (prefix.compareToIgnoreCase(node.data) > 0) {
                 autocomplete(node.right, prefix, result);
             } else {
                 autocomplete(node.left, prefix, result);

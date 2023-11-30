@@ -66,6 +66,12 @@ Price: $2950 - $3588
 
 Type of House: House
 Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: 179 Hillside Avenue - Toronto, ON
+Price: $3200
+
+Type of House: House
+Number of Beds: 2 BED
 Number of Baths: 1 BATH
 Address: 92 Moberly Avenue - Toronto, ON
 Price: $3200
@@ -91,12 +97,6 @@ Price: $2900
 Type of House: House
 Number of Beds: 2 BED
 Number of Baths: 2 BATH
-Address: 179 Hillside Avenue - Toronto, ON
-Price: $3200
-
-Type of House: House
-Number of Beds: 2 BED
-Number of Baths: 2 BATH
 Address: 140 Helendale Avenue - Toronto, ON
 Price: $3600
 
@@ -118,6 +118,24 @@ Number of Baths: 2 BATH
 Address: 54 East Liberty Street - Toronto, ON
 Price: $3600
 
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 2 BATH
+Address: Saint Clair Avenue West - Toronto, ON
+Price: $3365
+
+Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 - 2 BATH
+Address: Nassau Street - Toronto, ON
+Price: $3000 - $3200
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: Nassau Street - Toronto, ON
+Price: $1900
+
 Type of House: Town House
 Number of Beds: 2 BED
 Number of Baths: 1.5 BATH
@@ -129,22 +147,4 @@ Number of Beds: 2 BED
 Number of Baths: 1 BATH
 Address: 808 Dovercourt Road - Toronto, ON
 Price: $2695
-
-Type of House: House
-Number of Beds: 2 BED
-Number of Baths: 2 BATH
-Address: Saint Clair Avenue West - Toronto, ON
-Price: $3365
-
-Type of House: Multi-Unit
-Number of Beds: 2 BED
-Number of Baths: 1 BATH
-Address: 209 Chatham Avenue - Toronto, ON
-Price: $2825
-
-Type of House: House
-Number of Beds: 2 BED
-Number of Baths: 1 BATH
-Address: 110 Port Royal Trail - Toronto, ON
-Price: $2000
 

@@ -36,19 +36,21 @@ public class SearchWord {
 		int offset = 0, loc =0;
 
 		while (loc <= text.length()) {
-			offset = RentalAnalysis.search1(word, text.substring(loc));
+			//offset = RentalAnalysis.search1(word, text.substring(loc));
+			BoyerMoore b = new BoyerMoore(word);
+			offset = b.search(text.substring(loc));
 			if ((offset + loc) < text.length()) {
 				count++;
-//				System.out.println("\n" + word + " is at position " + (offset + loc) + "."); // printing the position of the word
+				//System.out.println("\n" + word + " is at position " + (offset + loc) + "."); // printing the position of the word
 			}
 			loc += offset + word.length();
 		}
 		
 		// If the word is found, print the file name where it is found
 		if (count != 0) {
-			System.out.println("-------------------------------------------------");
-			System.out.println("\nWord found in " + filePath.getName() + " " +count+ " number of times");
-			System.out.println("-------------------------------------------------");
+		//System.out.println("-------------------------------------------------");
+		//System.out.println("\nWord found in " + filePath.getName() + " " +count+ " number of times");
+		//System.out.println("-------------------------------------------------");
 		}
 		return count;
 	}
@@ -64,7 +66,6 @@ public class SearchWord {
 	 * 
 	 * @param word The word to find similar words for
 	 */
-
 	public static void altWord(String word) {
 		String str = " ";
 		String pattern1 = "[0-9a-zA-Z]+";
@@ -74,10 +75,10 @@ public class SearchWord {
 		Matcher m3 = r3.matcher(str);
 		int fileNumber = 0;
 
-		// Get the list of files in the directory to search for similar words	
+		// Get the list of files in the directory to search for similar words
 		File dir = new File(System.getProperty("user.dir") + Constant.FILE_PATH);
 		File[] fileArray = dir.listFiles();
-		
+
 		// Iterate through the files and find data based on edit distance
 		for (File file : fileArray) {
 			try {
@@ -88,14 +89,15 @@ public class SearchWord {
 			}
 		}
 
-		Integer allowedDistance = 1;
-		boolean matchFound = false; 
-
+		// Adjust allowedDistance to suggest words with edit distances of 1, 2, or 3
+		int maxAllowedDistance = 3; // You can change this value as needed
+		boolean matchFound = false;
 
 		int i = 0;
-		// Display the list of words with an edit distance of 1 to the provided word
+		// Display the list of words with the specified edit distances to the provided word
 		for (String key : RentalAnalysis.numbers.keySet()) {
-			if (allowedDistance.equals(RentalAnalysis.numbers.get(key))) {
+			int editDistance = RentalAnalysis.numbers.get(key);
+			if (editDistance <= maxAllowedDistance && editDistance > 0) {
 				i++;
 				System.out.print("(" + i + ") " + key + "\n");
 				matchFound = true;
@@ -105,4 +107,5 @@ public class SearchWord {
 			System.out.println("Entered word cannot be resolved.");
 		else System.out.println("Did you mean? ");
 	}
+
 }

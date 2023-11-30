@@ -1,272 +1,256 @@
 City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 5 bath
-Street: 29 Leland Avenue
+Number of Beds: 3 bed
+Number of Baths: 1 bath
+Street: MAIN-35 Rowatson Road
 City: Toronto
 Province: ON
-Price: 3,998,000
+Price: 3,500
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 36 Marthclare Avenue
+City: Toronto
+Province: ON
+Price: 3,790
 
 City: Toronto
 Number of Beds: 3 bed
-Number of Baths: 5 bath
-Street: 408 Ontario Street
-City: Toronto
-Province: ON
-Price: 2,695,000
-
-City: Toronto
-Number of Beds: 3+2 bed
 Number of Baths: 3 bath
-Street: 270 Brighton Avenue N
+Street: 16 Tettenhall Road
 City: Toronto
 Province: ON
-Price: 1,588,000
-
-City: Toronto
-Number of Beds: 4+2 bed
-Number of Baths: 3 bath
-Street: 239 Burnhamthorpe Road
-City: Toronto
-Province: ON
-Price: 1,299,000
-
-City: Toronto
-Number of Beds: 4 bed
-Number of Baths: 3 bath
-Street: 6 Lantana Court
-City: Toronto
-Province: ON
-Price: 1,395,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 6 bath
-Street: 689 Briar Hill Avenue
-City: Toronto
-Province: ON
-Price: 3,595,000
-
-City: Toronto
-Number of Beds: 3+1 bed
-Number of Baths: 4 bath
-Street: 55 Stibbard Avenue
-City: Toronto
-Province: ON
-Price: 3,285,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 4 bath
-Street: 57 Jeavons Avenue
-City: Toronto
-Province: ON
-Price: 1,199,000
-
-City: Toronto
-Number of Beds: 3+2 bed
-Number of Baths: 2 bath
-Street: 1336 Pharmacy Avenue
-City: Toronto
-Province: ON
-Price: 1,249,988
-
-City: Toronto
-Number of Beds: 4 bed
-Number of Baths: 3 bath
-Street: 89 Lord Seaton Road
-City: Toronto
-Province: ON
-Price: 2,295,000
-
-City: Toronto
-Number of Beds: 4 bed
-Number of Baths: 4 bath
-Street: 16 Linderwood Drive
-City: Toronto
-Province: ON
-Price: 1,500,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 5 bath
-Street: 21 Tyre Avenue
-City: Toronto
-Province: ON
-Price: 3,499,999
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 2 bath
-Street: 28 Pergola Road
-City: Toronto
-Province: ON
-Price: 939,900
-
-City: Toronto
-Number of Beds: 3+3 bed
-Number of Baths: 4 bath
-Street: 31 Bellefontaine Street
-City: Toronto
-Province: ON
-Price: 999,000
-
-City: Toronto
-Number of Beds: 3+1 bed
-Number of Baths: 2 bath
-Street: 155 Colonel Danforth Trail
-City: Toronto
-Province: ON
-Price: 1,199,000
-
-City: Toronto
-Number of Beds: 2+1 bed
-Number of Baths: 2 bath
-Street: 262 Thirtieth Street
-City: Toronto
-Province: ON
-Price: 1,295,000
+Price: 5,900
 
 City: Toronto
 Number of Beds: 3 bed
 Number of Baths: 1 bath
-Street: 99 Heddington Avenue
+Street: MAIN FL-436 Drewry Avenue
 City: Toronto
 Province: ON
-Price: 1,549,000
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 3 bath
-Street: 11 Gibson Avenue
-City: Toronto
-Province: ON
-Price: 5,500,000
-
-City: Toronto
-Number of Beds: 3+1 bed
-Number of Baths: 3 bath
-Street: 45 Teddington Pk Avenue
-City: Toronto
-Province: ON
-Price: 2,495,000
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 4 bath
-Street: 369 Joicey Boulevard
-City: Toronto
-Province: ON
-Price: 1,899,000
+Price: 3,300
 
 City: Toronto
 Number of Beds: 4 bed
 Number of Baths: 2 bath
-Street: 34 Shaunavon Hts Crescent
+Street: 20 Romfield Drive
 City: Toronto
 Province: ON
-Price: 1,299,000
+Price: 4,000
 
 City: Toronto
-Number of Beds: 5+1 bed
-Number of Baths: 6 bath
-Street: 88 Gerald Street
-City: Toronto
-Province: ON
-Price: 3,880,000
-
-City: Toronto
-Number of Beds: 3+1 bed
+Number of Beds: 4 bed
 Number of Baths: 3 bath
-Street: 147 Bexhill Avenue
+Street: 121 Scarboro Avenue
 City: Toronto
 Province: ON
-Price: 999,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 5 bath
-Street: 12 Walder Avenue
-City: Toronto
-Province: ON
-Price: 3,980,000
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 2 bath
-Street: 67 Araman Drive
-City: Toronto
-Province: ON
-Price: 1,069,000
-
-City: Toronto
-Number of Beds: 3+1 bed
-Number of Baths: 3 bath
-Street: 12 Gibson Avenue
-City: Toronto
-Province: ON
-Price: 995,000
-
-City: Toronto
-Number of Beds: 4+3 bed
-Number of Baths: 5 bath
-Street: 710 Morrish Road
-City: Toronto
-Province: ON
-Price: 1,698,786
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 5 bath
-Street: 499 Rushton Road
-City: Toronto
-Province: ON
-Price: 3,500,000
+Price: 3,300
 
 City: Toronto
 Number of Beds: 2+1 bed
 Number of Baths: 2 bath
-Street: 153 Royal York Road
+Street: BASEMNT-11 Neddie Drive
 City: Toronto
 Province: ON
-Price: 889,900
-
-City: Toronto
-Number of Beds: 3+2 bed
-Number of Baths: 4 bath
-Street: 5 Braemar Avenue
-City: Toronto
-Province: ON
-Price: 3,750,000
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 8 bath
-Street: 6 St Margarets Drive
-City: Toronto
-Province: ON
-Price: 15,000,000
-
-City: Toronto
-Number of Beds: 2+1 bed
-Number of Baths: 2 bath
-Street: 532 Danforth Road
-City: Toronto
-Province: ON
-Price: 1,499,500
-
-City: Toronto
-Number of Beds: 3+2 bed
-Number of Baths: 2 bath
-Street: 26 Brewton Road
-City: Toronto
-Province: ON
-Price: 1,298,000
+Price: 2,400
 
 City: Toronto
 Number of Beds: 3 bed
-Number of Baths: 4 bath
-Street: 7 Warwick Castle Court
+Number of Baths: 1 bath
+Street: MAIN-11 Neddie Drive
 City: Toronto
 Province: ON
-Price: 949,000
+Price: 2,800
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 1 bath
+Street: BSMT-82 Caines Avenue
+City: Toronto
+Province: ON
+Price: 2,990
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 1 bath
+Street: 22 Millmere Drive
+City: Toronto
+Province: ON
+Price: 3,000
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: BSMT-3 Shandon Drive
+City: Toronto
+Province: ON
+Price: 2,100
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: 1-686 Queen Street E
+City: Toronto
+Province: ON
+Price: 2,400
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: BSMT-293 Rouge Highland Drive
+City: Toronto
+Province: ON
+Price: 2,350
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 2 bath
+Street: 71 Pleasant View Drive
+City: Toronto
+Province: ON
+Price: 1,353,888
+
+City: Toronto
+Number of Beds: 4 bed
+Number of Baths: 4 bath
+Street: 36 Shallmar Boulevard
+City: Toronto
+Province: ON
+Price: 6,850
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 3 bath
+Street: 164 Langford Avenue
+City: Toronto
+Province: ON
+Price: 6,095
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: LOWER-52 Sloane Avenue
+City: Toronto
+Province: ON
+Price: 2,350
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 1 bath
+Street: 47 Dunkirk Road
+City: Toronto
+Province: ON
+Price: 3,500
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 1 bath
+Street: LOWER-94 Meadowvale Road
+City: Toronto
+Province: ON
+Price: 2,700
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 3 bath
+Street: 76 Brookview Drive
+City: Toronto
+Province: ON
+Price: 4,200
+
+City: Toronto
+Number of Beds: 4+1 bed
+Number of Baths: 4 bath
+Street: 80 Gwendolen Crescent
+City: Toronto
+Province: ON
+Price: 7,500
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 2 bath
+Street: MAIN-43 Otonabee Avenue
+City: Toronto
+Province: ON
+Price: 3,500
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: 49 Brahms Avenue
+City: Toronto
+Province: ON
+Price: 2,050
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 2 bath
+Street: 23 Judith Drive
+City: Toronto
+Province: ON
+Price: 3,500
+
+City: Toronto
+Number of Beds: 2 bed
+Number of Baths: 1 bath
+Street: BSMT-3 Heatherington Drive N
+City: Toronto
+Province: ON
+Price: 2,500
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 2 bath
+Street: 13 Rockvale Avenue
+City: Toronto
+Province: ON
+Price: 4,400
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 3 bath
+Street: 50 Mosedale Crescent
+City: Toronto
+Province: ON
+Price: 2,780
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 2 bath
+Street: MAIN-217 Brighton Avenue
+City: Toronto
+Province: ON
+Price: 3,400
+
+City: Toronto
+Number of Beds: 3+1 bed
+Number of Baths: 2 bath
+Street: 663 Eglinton Avenue
+City: Toronto
+Province: ON
+Price: 5,200
+
+City: Toronto
+Number of Beds: 3+2 bed
+Number of Baths: 3 bath
+Street: 46 Perivale Crescent
+City: Toronto
+Province: ON
+Price: 3,999
+
+City: Toronto
+Number of Beds: 5 bed
+Number of Baths: 4 bath
+Street: 39 Sunnydene Crescent
+City: Toronto
+Province: ON
+Price: 4,980,000
+
+City: Toronto
+Number of Beds: 3 bed
+Number of Baths: 2 bath
+Street: 468 Northcliffe Boulevard
+City: Toronto
+Province: ON
+Price: 3,200
 

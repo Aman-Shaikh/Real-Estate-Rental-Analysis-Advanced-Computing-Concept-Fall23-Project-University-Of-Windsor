@@ -61,15 +61,20 @@ public class Crawler {
 				// Select the type of house
 				selectType(driver, "//*[@id=\"home_search_top\"]/ul/li[4]", type); // Replace with the actual name or ID of the beds dropdown
 
-
 				// Wait for some time to let the search results load
 				Thread.sleep(2000);
-
 
 				// Select the number of beds//*[@id="home_search_top"]/ul/li[4]/div/ul/li[1]/label/span
 				selectBeds(driver, "//*[@id=\"home_search_top\"]/ul/li[3]", beds); // Replace with the actual name or ID of the beds dropdown
 
-				// Crawl all listings and store data in text files
+				// Wait for some time to let the search results load
+				Thread.sleep(2500);
+
+
+				// Select the number of beds//*[@id="home_search_top"]/ul/li[4]/div/ul/li[1]/label/span
+				selectForRent(driver, "//*[@id=\"home_search_top\"]/ul/li[1]", "For Rent"); // Replace with the actual name or ID of the beds dropdown
+
+			// Crawl all listings and store data in text files
 				 crawlListingsAndStoreDataZolo(driver);
 
 				System.out.println("\n**********************************************************************************************");
@@ -160,6 +165,25 @@ public class Crawler {
 		}
 		WebElement bedOption = driver.findElement(By.xpath(dropDownXPath+"/div/div[2]/ul//a[contains(text(),\""+ value +"+\")"+"]"));
 		bedOption.click();
+	}
+	private static void selectForRent(WebDriver driver, String dropDownXPath, String value) {
+		WebElement dropdown = driver.findElement(By.xpath(dropDownXPath));
+		dropdown.click();
+
+		// Wait for some time to let the dropdown options load
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		WebElement bedOption = driver.findElement(By.xpath(dropDownXPath+"/div/div[2]/ul//a[contains(text(),\""+ value +"\")"+"]"));
+		bedOption.click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	private static void selectType(WebDriver driver, String dropDownXPath, String value) {
 		WebElement dropdown = driver.findElement(By.xpath(dropDownXPath+"/a")); // Replace with the actual ID of the dropdown

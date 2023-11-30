@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RentalAnalysis {
@@ -18,7 +19,7 @@ public class RentalAnalysis {
     static int R;
     static int[] right;
 
-    private static AVLTreeII invertedIndex = new AVLTreeII();
+    private static Trie invertedIndex = new Trie();
 
     public RentalAnalysis() {
         System.out.println("***************************************************");
@@ -39,14 +40,32 @@ public class RentalAnalysis {
         return offset;
     }
 
+
+    public static void findPatterns(String pattern, String text, String fileName) {
+        Pattern regexPattern = Pattern.compile(pattern);
+        Matcher matcher = regexPattern.matcher(text);
+
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+            System.out.println("File: " + fileName + ", Pattern found at position " + matcher.start() + ": " + matcher.group());
+        }
+
+        if (count == 0) {
+            System.out.println("File: " + fileName + ", Pattern not found in the text.");
+        } else {
+            System.out.println("File: " + fileName + ", Total occurrences of the pattern: " + count);
+            System.out.println("-------------------------------------------------------------------------------------\n\n");
+        }
+    }
     public static void RentalAnalysis() {
         File dir = new File(System.getProperty("user.dir") + Constant.FILE_PATH);
 
-        for (File f : dir.listFiles()) {
-            if (f.getName().endsWith(".txt")) {
-                f.delete();
-            }
-        }
+//        for (File f : dir.listFiles()) {
+//            if (f.getName().endsWith(".txt")) {
+//                f.delete();
+//            }
+//        }
 
 
         RentalAnalysis w = new RentalAnalysis();
@@ -65,27 +84,33 @@ public class RentalAnalysis {
         Scanner scan = new Scanner(System.in);
         String choice = "y";
         String word;
+        boolean isCityComplete=false;
+        String city;
 
-        //word completion
+        //word completion Abubakar
         AVLTree cityTree = new AVLTree();
         loadCities(cityTree);
 
         System.out.println("\nSpecify the details of your search (e.g. city, house/apartment/condo, number of bedrooms, etc): ");
-        System.out.print("City: ");
-        String city = scan.nextLine();
+        do {
+            System.out.print("Enter City: ");
+            city = scan.nextLine();
 
-        String suggestions = cityTree.autocomplete(city);
+            String suggestions = cityTree.autocomplete(city);
 
-        if(suggestions.equalsIgnoreCase("No complete word can be found.")){
-            System.out.println("Either it's complete word OR No complete word can be found.");
-        }
-        else {
-            System.out.println("Word Completion Output: "+suggestions);
-            city = suggestions;
-        }
+            if (suggestions.equalsIgnoreCase("No complete word can be found.")) {
+                System.out.println("No complete word can be found.");
+                isCityComplete = false;
+            }
+            else {
+                System.out.println("Word Completion Output: "+suggestions);
+                city = suggestions;
+                isCityComplete = true;
+            }
+        }while (!isCityComplete);
 
-        // Data validation using regular expressions;
-        // Validate the input for the 'type' variable (house/apartment/condo)
+        //Data validation using regular expressions;
+        //Validate the input for the 'type' variable (house/apartment/condo)
         String type;
         do {
             // Prompt the user for input
@@ -109,69 +134,104 @@ public class RentalAnalysis {
 
 
         Crawler.crawlZolo("https://zolo.ca/", city, type, beds);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Crawler.crawlRentals("https://rentals.ca/", city, type, beds);
 
-        Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
 
 
         do {
-            long fileNumber = 0;
-            int occur = 0;
-            int pg = 0;
+            System.out.print("Enter word or pattern to search in crawled data: ");
+            String input = scan.nextLine();
 
-            do {
-                System.out.print("Enter word to search in crawled data: ");
-                word = scan.nextLine();
-            } while (!word.matches("\\w+"));
+            // Check if the input is a regular expression pattern
+            boolean isPattern = Pattern.matches(".*[.*+?{|().\\^$].*", input);
 
-            try {
-                System.out.println("\n\n---------------------------------------------------");
-                File[] fileArray = dir.listFiles();
-
-                    for (int i = 0; i < fileArray.length; i++) {
-                        // Reset the AVL tree for each file
-                        //inverted indexing and frequency count
+            if (isPattern) {
+                // If input is a regular expression pattern, use findPatterns method
+                for (File file : dir.listFiles()) {
+                    try {
                         invertedIndex.reset();
 
-                        Scanner scanner = new Scanner(fileArray[i]);
+                        Scanner scanner = new Scanner(file);
                         while (scanner.hasNext()) {
-                            String fileWord = scanner.next().toLowerCase(); // Convert to lowercase for case-insensitive indexing
-                            invertedIndex.buildIndex(fileWord, i + 1); // i + 1 represents the file number
+                            String fileWord = scanner.next().toLowerCase();
+                            invertedIndex.insert(fileWord, n + 1);
                         }
-                        ArrayList<Integer> occurrences = invertedIndex.search(word);
+                        scanner.close();
+                        scanner = new Scanner(file);
+                        StringBuilder content = new StringBuilder();
+                        while (scanner.hasNextLine()) {
+                            content.append(scanner.nextLine()).append("\n");
+                        }
+                        String text = content.toString();// Read entire file content
+                        findPatterns(input, text , file.getName());
+                        scanner.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                // If input is a word, proceed with existing logic
+                Hashtable<String, Integer> occurrs = new Hashtable<>();
 
-                        System.out.println("\n\nInverted Indexing Output:\nOccurrences of '" + word + "' in " + fileArray[i].getName() + " : " + occurrences.size());
+                long fileNumber = 0;
+                int occur = 0;
+                int pg = 0;
+
+                try {
+                    File[] fileArray = dir.listFiles();
+
+                    for (File file : fileArray) {
+                        invertedIndex.reset();
+
+                        Scanner scanner = new Scanner(file);
+                        while (scanner.hasNext()) {
+                            String fileWord = scanner.next().toLowerCase();
+                            invertedIndex.insert(fileWord, n + 1);
+                        }
+                        ArrayList<Integer> occurrences = invertedIndex.search(input);
+
+
+                        System.out.println("\n\nInverted Indexing Output:\nOccurrences of '" + input + "' in " +
+                                file.getName() + " : " + occurrences.size());
+                        System.out.println("---------------------------------------------------");
                         scanner.close();
                     }
-                System.out.println("---------------------------------------------------");
 
-                    for (int i = 0; i < fileArray.length; i++) {
-                        //Frequency count Farhan
-                        occur = SearchWord.wordSearch(word, fileArray[i]);
-                        occurrs.put(fileArray[i].getName(), occur);
+
+                    for (File file : fileArray) {
+                        // Frequency Count Farhan
+                        occur = SearchWord.wordSearch(input, file);
+                        occurrs.put(file.getName(), occur);
                         if (occur != 0)
                             pg++;
                         fileNumber++;
                     }
 
-                if (pg == 0) {
-                    System.out.println("\n\n---------------------------------------------------");
-                    System.out.println("Given word not found!!");
-                    System.out.println("Searching for similar words.....");
+                    if (pg == 0) {
+                        System.out.println("\n\n---------------------------------------------------");
+                        System.out.println("Given word not found!!");
+                        System.out.println("Searching for similar words.....");
+                        SearchWord.altWord(input);
+                    } else {
+                        //Search Frequency Naman
+                        searchFrequencies.put(input.toLowerCase(), searchFrequencies.getOrDefault(input.toLowerCase(), 0) + 1);
+                        hashing(occurrs, pg);
+                        //webpage ranking Farhan
+                        Sorting.sortWebPagesByOccurrence(occurrs, pg);
+                    }
 
-                    //spellchecker Naman
-                    SearchWord.altWord(word);
-                } else {
-                    searchFrequencies.put(word, searchFrequencies.getOrDefault(word, 0) + 1);
-                    hashing(occurrs, pg);
-                    Sorting.sortWebPagesByOccurrence(occurrs, pg);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                System.out.println("\n\n Do you want to continue(y/n)??");
-                choice = scan.nextLine();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            System.out.println("\n Do you want to continue(y/n)??");
+            choice = scan.nextLine();
         } while (choice.equals("y"));
         System.out.println("\n***************************************************\n");
         System.out.println("	THANK YOU FOR USING OUR RENTAL ANALYSIS PROGRAM       ");
@@ -212,6 +272,7 @@ public class RentalAnalysis {
                 });
         System.out.println("-----------------------------------------------------------------------------");
         System.out.println("\n\nSearch Frequencies:");
+        System.out.println("--------------------------------------");
         System.out.printf("| %20s | %10s", "WORD", "FREQUENCY");
         System.out.println();
         System.out.println("--------------------------------------");
