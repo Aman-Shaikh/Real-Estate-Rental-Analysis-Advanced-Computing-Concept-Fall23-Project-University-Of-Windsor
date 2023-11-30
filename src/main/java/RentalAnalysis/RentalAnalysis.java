@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -15,7 +16,7 @@ public class RentalAnalysis {
     static int R;
     static int[] right;
 
-    private static InvertedIndexWithTree invertedIndex = new InvertedIndexWithTree();
+    private static AVLTreeII invertedIndex = new AVLTreeII();
 
     public RentalAnalysis() {
         System.out.println("***************************************************");
@@ -39,11 +40,11 @@ public class RentalAnalysis {
     public static void RentalAnalysis() {
         File dir = new File(System.getProperty("user.dir") + Constant.FILE_PATH);
 
-//        for (File f : dir.listFiles()) {
-//            if (f.getName().endsWith(".txt")) {
-//                f.delete();
-//            }
-//        }
+        for (File f : dir.listFiles()) {
+            if (f.getName().endsWith(".txt")) {
+                f.delete();
+            }
+        }
 
 
         RentalAnalysis w = new RentalAnalysis();
@@ -81,6 +82,7 @@ public class RentalAnalysis {
             city = suggestions;
         }
 
+        // Data validation using regular expressions;
         // Validate the input for the 'type' variable (house/apartment/condo)
         String type;
         do {
@@ -104,14 +106,11 @@ public class RentalAnalysis {
         // The loop continues until 'beds' matches the pattern, which allows for one or more digits.
 
 
-//        Crawler.crawlZolo("https://zolo.ca/", city, type, beds);
-//        Crawler.crawlRentals("https://rentals.ca/", city, type, beds);
-
-
-
-
+        Crawler.crawlZolo("https://zolo.ca/", city, type, beds);
+        Crawler.crawlRentals("https://rentals.ca/", city, type, beds);
 
         Hashtable<String, Integer> occurrs = new Hashtable<String, Integer>();
+
 
         do {
             long fileNumber = 0;
@@ -125,15 +124,28 @@ public class RentalAnalysis {
 
             try {
                 File[] fileArray = dir.listFiles();
-                invertedIndex.buildIndex(fileArray);
 
-                for (int i = 0; i < fileArray.length; i++) {
-                    occur = SearchWord.wordSearch(word, fileArray[i]);
-                    occurrs.put(fileArray[i].getName(), occur);
-                    if (occur != 0)
-                        pg++;
-                    fileNumber++;
-                }
+                    for (int i = 0; i < fileArray.length; i++) {
+                        // Reset the AVL tree for each file
+                        //inverted indexing and frequency count
+                        invertedIndex.reset();
+
+                        Scanner scanner = new Scanner(fileArray[i]);
+                        while (scanner.hasNext()) {
+                            String fileWord = scanner.next().toLowerCase(); // Convert to lowercase for case-insensitive indexing
+                            invertedIndex.buildIndex(fileWord, i + 1); // i + 1 represents the file number
+                        }
+
+                        //Frequency count, Spell checking, Finding patterns using regular expressions.
+                        occur = SearchWord.wordSearch(word, fileArray[i]);
+                        occurrs.put(fileArray[i].getName(), occur);
+
+                        scanner.close();
+
+                        if (occur != 0)
+                            pg++;
+                        fileNumber++;
+                    }
 
                 if (pg == 0) {
                     System.out.println("\n\n\n\n\n\n---------------------------------------------------");
@@ -141,7 +153,7 @@ public class RentalAnalysis {
                     System.out.println("Searching for similar words.....");
                     SearchWord.altWord(word);
                 } else {
-                    RentalAnalysis.hashing(occurrs, pg);
+                    hashing(occurrs, pg);
                     Sorting.sortWebPagesByOccurrence(occurrs, pg);
                 }
 
@@ -151,7 +163,6 @@ public class RentalAnalysis {
                 e.printStackTrace();
             }
         } while (choice.equals("y"));
-
         System.out.println("\n***************************************************\n");
         System.out.println("	THANK YOU FOR USING OUR RENTAL ANALYSIS PROGRAM       ");
         System.out.println("\n***************************************************\n");

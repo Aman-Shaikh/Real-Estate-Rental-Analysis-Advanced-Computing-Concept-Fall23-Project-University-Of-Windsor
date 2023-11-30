@@ -1,3 +1,9 @@
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 276 Brighton Avenue - Toronto, ON
+Price: $2570
+
 Type of House: Multi-Unit
 Number of Beds: 2 BED
 Number of Baths: 1 BATH
@@ -14,7 +20,7 @@ Type of House: Multi-Unit
 Number of Beds: 2 BED
 Number of Baths: 2 BATH
 Address: 197 Hallam Street - Toronto, ON
-Price: $3350
+Price: $3300
 
 Type of House: Town House
 Number of Beds: 2 BED
@@ -76,18 +82,6 @@ Number of Baths: 1 BATH
 Address: 529 Manning Avenue - Toronto, ON
 Price: $3800
 
-Type of House: Multi-Unit
-Number of Beds: 2 BED
-Number of Baths: 1.5 BATH
-Address: 256 Augusta Avenue - Toronto, ON
-Price: $2995
-
-Type of House: House
-Number of Beds: 2 BED
-Number of Baths: 1 BATH
-Address: 110 Port Royal Trail - Toronto, ON
-Price: $2000
-
 Type of House: Town House
 Number of Beds: 2 BED
 Number of Baths: 1 BATH
@@ -124,27 +118,33 @@ Number of Baths: 2 BATH
 Address: 54 East Liberty Street - Toronto, ON
 Price: $3600
 
-Type of House: Town House
+Type of House: House
 Number of Beds: 2 BED
-Number of Baths: 2.5 BATH
-Address: 37 Wild Rose Gardens - Toronto, ON
-Price: $2950
+Number of Baths: 1 BATH
+Address: 808 Dovercourt Road - Toronto, ON
+Price: $2695
 
 Type of House: House
 Number of Beds: 2 BED
 Number of Baths: 2 BATH
-Address: 46 Western Battery Rd - Toronto, ON
-Price: $3200
-
-Type of House: Town House
-Number of Beds: 2 BED
-Number of Baths: 1.5 BATH
-Address: Prescott Avenue - Toronto, ON
+Address: Saint Clair Avenue West - Toronto, ON
 Price: $3365
 
-Type of House: Town House
+Type of House: Multi-Unit
 Number of Beds: 2 BED
-Number of Baths: 1.5 BATH
-Address: Prescott Avenue - Toronto, ON
-Price: $3365
+Number of Baths: 1 BATH
+Address: 209 Chatham Avenue - Toronto, ON
+Price: $2825
+
+Type of House: House
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 110 Port Royal Trail - Toronto, ON
+Price: $2000
+
+Type of House: Multi-Unit
+Number of Beds: 2 BED
+Number of Baths: 1 BATH
+Address: 1192 Dufferin Street - Toronto, ON
+Price: $2650
 

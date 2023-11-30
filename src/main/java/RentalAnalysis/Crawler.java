@@ -361,15 +361,24 @@ public class Crawler {
 			directory.mkdirs();
 		}
 
-		// Create a text file for all listings
-		File txtFile = new File("assets/textFiles/zolo.txt");
+		File txtFile1 = new File("assets/textFiles/zolo.txt");
+		BufferedWriter writer = null;
 
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
+		try {
+			writer = new BufferedWriter(new FileWriter(txtFile1));
+
 			// Write all data to the text file
 			writer.write(allDataStringBuilder.toString());
-			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -431,14 +440,26 @@ public class Crawler {
 		}
 
 		// Create a text file for all listings
-		File txtFile = new File("assets/textFiles/rentals.txt");
 
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFile))) {
+
+		File txtFile = new File("assets/textFiles/rentals.txt");
+		BufferedWriter writer = null;
+
+		try {
+			writer = new BufferedWriter(new FileWriter(txtFile));
+
 			// Write all data to the text file
 			writer.write(allDataStringBuilder.toString());
-			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

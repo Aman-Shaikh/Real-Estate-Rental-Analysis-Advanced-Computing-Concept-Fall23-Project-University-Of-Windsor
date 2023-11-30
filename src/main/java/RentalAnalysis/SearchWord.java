@@ -44,7 +44,7 @@ public class SearchWord {
 		}
 		
 		// If the word is found, print the file name where it is found
-		if (count != 0) {
+		if (count >= 0) {
 			System.out.println("-------------------------------------------------");
 			System.out.println("\nWord found in " + filePath.getName() + " " +count+ " number of times");
 			System.out.println("-------------------------------------------------");
@@ -59,7 +59,7 @@ public class SearchWord {
 	}
 
 	/**
-	 * Finds all the words with an edit distance of 1 to the provided word.
+	 * Finds all the words with an edit distance of 3 to the provided word.
 	 * 
 	 * @param word The word to find similar words for
 	 */
