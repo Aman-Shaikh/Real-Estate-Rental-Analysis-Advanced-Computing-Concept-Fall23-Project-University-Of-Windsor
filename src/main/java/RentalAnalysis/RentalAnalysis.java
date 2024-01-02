@@ -43,6 +43,7 @@ public class RentalAnalysis {
 
     public static void findPatterns(String pattern, String text, String fileName) {
         Pattern regexPattern = Pattern.compile(pattern);
+//        Pattern regexPattern = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
         Matcher matcher = regexPattern.matcher(text);
 
         int count = 0;
@@ -129,7 +130,7 @@ public class RentalAnalysis {
 
             // Read the user input for 'beds'
             beds = scan.nextLine();
-        } while (!beds.matches("\\d+"));
+        } while (!beds.matches("\\d+") || Integer.parseInt(beds) < 0 || Integer.parseInt(beds) > 4);
         // The loop continues until 'beds' matches the pattern, which allows for one or more digits.
 
 

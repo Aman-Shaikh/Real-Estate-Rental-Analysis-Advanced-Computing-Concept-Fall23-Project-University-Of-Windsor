@@ -1,256 +1,248 @@
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: MAIN-35 Rowatson Road
-City: Toronto
-Province: ON
-Price: 3,500
-
-City: Toronto
+City: Hamilton
 Number of Beds: 4 bed
 Number of Baths: 2 bath
-Street: 36 Marthclare Avenue
-City: Toronto
+Street: 531 Beach Boulevard
+City: Hamilton
 Province: ON
-Price: 3,790
+Price: 11,000
 
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 3 bath
-Street: 16 Tettenhall Road
-City: Toronto
-Province: ON
-Price: 5,900
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: MAIN FL-436 Drewry Avenue
-City: Toronto
-Province: ON
-Price: 3,300
-
-City: Toronto
-Number of Beds: 4 bed
+City: Hamilton
+Number of Beds: 5 bed
 Number of Baths: 2 bath
-Street: 20 Romfield Drive
-City: Toronto
+Street: 247 Cannon Street E
+City: Hamilton
 Province: ON
-Price: 4,000
+Price: 635,000
 
-City: Toronto
-Number of Beds: 4 bed
-Number of Baths: 3 bath
-Street: 121 Scarboro Avenue
-City: Toronto
-Province: ON
-Price: 3,300
-
-City: Toronto
-Number of Beds: 2+1 bed
-Number of Baths: 2 bath
-Street: BASEMNT-11 Neddie Drive
-City: Toronto
-Province: ON
-Price: 2,400
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: MAIN-11 Neddie Drive
-City: Toronto
-Province: ON
-Price: 2,800
-
-City: Toronto
-Number of Beds: 4 bed
-Number of Baths: 1 bath
-Street: BSMT-82 Caines Avenue
-City: Toronto
-Province: ON
-Price: 2,990
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: 22 Millmere Drive
-City: Toronto
-Province: ON
-Price: 3,000
-
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: BSMT-3 Shandon Drive
-City: Toronto
-Province: ON
-Price: 2,100
-
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: 1-686 Queen Street E
-City: Toronto
-Province: ON
-Price: 2,400
-
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: BSMT-293 Rouge Highland Drive
-City: Toronto
-Province: ON
-Price: 2,350
-
-City: Toronto
-Number of Beds: 3+2 bed
-Number of Baths: 2 bath
-Street: 71 Pleasant View Drive
-City: Toronto
-Province: ON
-Price: 1,353,888
-
-City: Toronto
+City: Hamilton
 Number of Beds: 4 bed
 Number of Baths: 4 bath
-Street: 36 Shallmar Boulevard
-City: Toronto
-Province: ON
-Price: 6,850
-
-City: Toronto
-Number of Beds: 4+1 bed
-Number of Baths: 3 bath
-Street: 164 Langford Avenue
-City: Toronto
-Province: ON
-Price: 6,095
-
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: LOWER-52 Sloane Avenue
-City: Toronto
-Province: ON
-Price: 2,350
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: 47 Dunkirk Road
-City: Toronto
-Province: ON
-Price: 3,500
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 1 bath
-Street: LOWER-94 Meadowvale Road
-City: Toronto
-Province: ON
-Price: 2,700
-
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 3 bath
-Street: 76 Brookview Drive
-City: Toronto
+Street: 2 Humphrey Street
+City: Hamilton
 Province: ON
 Price: 4,200
 
-City: Toronto
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 200 Provident Way
+City: Hamilton
+Province: ON
+Price: 3,500
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: UPPER LEVEL-110 Laurier Avenue
+City: Hamilton
+Province: ON
+Price: 3,450
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 110 Laurier Avenue
+City: Hamilton
+Province: ON
+Price: 3,450
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 245 West 33rd Street
+City: Hamilton
+Province: ON
+Price: 3,100
+
+City: Hamilton
 Number of Beds: 4+1 bed
 Number of Baths: 4 bath
-Street: 80 Gwendolen Crescent
-City: Toronto
+Street: UPPER-195 Great Falls Boulevard
+City: Hamilton
 Province: ON
-Price: 7,500
+Price: 4,000
 
-City: Toronto
-Number of Beds: 3 bed
+City: Hamilton
+Number of Beds: 5 bed
 Number of Baths: 2 bath
-Street: MAIN-43 Otonabee Avenue
-City: Toronto
+Street: 221 Nugent (upper Level) Drive N
+City: Hamilton
 Province: ON
 Price: 3,500
 
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: 49 Brahms Avenue
-City: Toronto
-Province: ON
-Price: 2,050
-
-City: Toronto
-Number of Beds: 3+1 bed
+City: Hamilton
+Number of Beds: 5 bed
 Number of Baths: 2 bath
-Street: 23 Judith Drive
-City: Toronto
+Street: 221 Nugent ( Upper Level Only ) Drive
+City: Hamilton
 Province: ON
 Price: 3,500
 
-City: Toronto
-Number of Beds: 2 bed
-Number of Baths: 1 bath
-Street: BSMT-3 Heatherington Drive N
-City: Toronto
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 4 bath
+Street: 32 Kingspoint Circle
+City: Hamilton
 Province: ON
-Price: 2,500
+Price: 4,500
 
-City: Toronto
-Number of Beds: 3+1 bed
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 4 bath
+Street: 35 Prudham Crescent
+City: Hamilton
+Province: ON
+Price: 4,100
+
+City: Hamilton
+Number of Beds: 4 bed
 Number of Baths: 2 bath
-Street: 13 Rockvale Avenue
-City: Toronto
+Street: 15 Gilcrest Street
+City: Hamilton
 Province: ON
-Price: 4,400
+Price: 3,300
 
-City: Toronto
-Number of Beds: 3+2 bed
+City: Hamilton
+Number of Beds: 4 bed
 Number of Baths: 3 bath
-Street: 50 Mosedale Crescent
-City: Toronto
+Street: 55 William Street
+City: Hamilton
 Province: ON
-Price: 2,780
+Price: 657,000
 
-City: Toronto
-Number of Beds: 3 bed
-Number of Baths: 2 bath
-Street: MAIN-217 Brighton Avenue
-City: Toronto
-Province: ON
-Price: 3,400
-
-City: Toronto
-Number of Beds: 3+1 bed
-Number of Baths: 2 bath
-Street: 663 Eglinton Avenue
-City: Toronto
-Province: ON
-Price: 5,200
-
-City: Toronto
-Number of Beds: 3+2 bed
+City: Hamilton
+Number of Beds: 4 bed
 Number of Baths: 3 bath
-Street: 46 Perivale Crescent
-City: Toronto
+Street: 242 Balmoral Avenue N
+City: Hamilton
 Province: ON
-Price: 3,999
+Price: 699,900
 
-City: Toronto
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: 14 Mcdonald Court
+City: Hamilton
+Province: ON
+Price: 3,500
+
+City: Hamilton
 Number of Beds: 5 bed
 Number of Baths: 4 bath
-Street: 39 Sunnydene Crescent
-City: Toronto
+Street: 408 Dalgleish Trail
+City: Hamilton
 Province: ON
-Price: 4,980,000
+Price: 4,000
 
-City: Toronto
-Number of Beds: 3 bed
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 8 Dolomiti Court
+City: Hamilton
+Province: ON
+Price: 3,850
+
+City: Hamilton
+Number of Beds: 4+1 bed
+Number of Baths: 4 bath
+Street: 72 Secinaro Avenue
+City: Hamilton
+Province: ON
+Price: 4,000
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 5 bath
+Street: 139 Pelech Crescent
+City: Hamilton
+Province: ON
+Price: 4,500
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 27 Wintergreen Crescent
+City: Hamilton
+Province: ON
+Price: 2,950
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 22 Brentwood Drive
+City: Hamilton
+Province: ON
+Price: 1,349,999
+
+City: Hamilton
+Number of Beds: 6 bed
+Number of Baths: 6 bath
+Street: 94 Smokey Hollow Place
+City: Hamilton
+Province: ON
+Price: 8,900
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 1 bath
+Street: 12 Senator Avenue
+City: Hamilton
+Province: ON
+Price: 2,299
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 4 bath
+Street: 54 Bethune Avenue
+City: Hamilton
+Province: ON
+Price: 3,850
+
+City: Hamilton
+Number of Beds: 4 bed
 Number of Baths: 2 bath
-Street: 468 Northcliffe Boulevard
-City: Toronto
+Street: 64 Hardale Crescent
+City: Hamilton
 Province: ON
 Price: 3,200
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 2 bath
+Street: UPPER-286 Cumberland Avenue
+City: Hamilton
+Province: ON
+Price: 3,200
+
+City: Hamilton
+Number of Beds: 5 bed
+Number of Baths: 4 bath
+Street: 59 Robertson Road
+City: Hamilton
+Province: ON
+Price: 4,300
+
+City: Hamilton
+Number of Beds: 4 bed
+Number of Baths: 3 bath
+Street: 56 Lexington Avenue
+City: Hamilton
+Province: ON
+Price: 3,300
+
+City: Hamilton
+Number of Beds: 5 bed
+Number of Baths: 2 bath
+Street: 3183 Cemetery Road
+City: Hamilton
+Province: ON
+Price: 3,250
+
+City: Hamilton
+Number of Beds: 4+1 bed
+Number of Baths: 3 bath
+Street: 147 Garside Avenue S
+City: Hamilton
+Province: ON
+Price: 969,800
 
